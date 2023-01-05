@@ -2,8 +2,6 @@ package com.example.finalproject.service;
 
 import com.example.finalproject.beans.Tag;
 import com.example.finalproject.utils.DbUtils;
-import com.ute.newsproject.beans.Tag;
-import com.ute.newsproject.utils.DbUtils;
 import org.sql2o.Connection;
 
 import java.util.List;
