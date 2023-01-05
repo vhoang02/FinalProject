@@ -5,15 +5,7 @@
          version="4.0">
     <servlet-mapping>
         <servlet-name>default</servlet-name>
-        <url-pattern>/style/style-main/*</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>default</servlet-name>
-        <url-pattern>/style/style-login/*</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>default</servlet-name>
-        <url-pattern>/style/style-dashboard/*</url-pattern>
+        <url-pattern>/style/*</url-pattern>
     </servlet-mapping>
     <welcome-file-list>
         <welcome-file>/views/vwHome/Index.jsp</welcome-file>
