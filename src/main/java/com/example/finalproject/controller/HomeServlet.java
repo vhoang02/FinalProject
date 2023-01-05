@@ -1,8 +1,7 @@
 package com.example.finalproject.controller;
 
-import com.example.finalproject.beans.Category;
+import com.example.finalproject.beans.Articles;
 import com.example.finalproject.service.ArticleService;
-import com.example.finalproject.service.CategoryService;
 import com.example.finalproject.utils.ServletUtils;
 
 import javax.servlet.ServletException;
@@ -24,7 +23,7 @@ public class HomeServlet extends HttpServlet {
 
         switch (path) {
             case "/Index":
-                List<Category> list = ArticleService.getTop3();
+                List<Articles> list = ArticleService.getTop3();
                 request.setAttribute("article", list);
                 ServletUtils.forward("/views/vwHome/Index.jsp", request, response);
                 break;
