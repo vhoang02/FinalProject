@@ -2,7 +2,7 @@
 <%@ taglib prefix="t" tagdir="/WEB-INF/tags" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <title>Home</title>
-<t:main_dash>
+<t:main>
   <jsp:body>
     <!-- Hero Section Begin -->
     <section class="hero">
@@ -85,4 +85,4 @@
     </section>
     <!-- Blog Section End -->
   </jsp:body>
-</t:main_dash>
+</t:main>
