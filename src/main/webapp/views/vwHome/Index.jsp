@@ -2,7 +2,7 @@
 <%@ taglib prefix="t" tagdir="/WEB-INF/tags" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <title>Home</title>
-<t:main>
+<t:main_dash>
   <jsp:body>
     <!-- Hero Section Begin -->
     <section class="hero">
@@ -55,21 +55,34 @@
     <section class="blog spad">
         <div class="container">
           <div class="row">
-            <c:forEach var="a" begin="1" end="5">
-              <div class="col-lg-4 col-md-6 col-sm-6">
-                <div class="blog__item">
-                  <div class="blog__item__pic set-bg" data-setbg="${pageContext.request.contextPath}/style/style-main/img/blog/blog-1.jpg"></div>
-                  <div class="blog__item__text">
-                    <span><img src="style-main/img/icon/calendar.png" alt=""> 16 February 2020</span>
-                    <h5>What Curling Irons Are The Best Ones</h5>
-                    <a href="./blogdetails.html">Read More</a>
-                  </div>
-                </div>
-              </div>
-            </c:forEach>
+<%--            <c:forEach var="a" begin="1" end="5">--%>
+<%--              <div class="col-lg-4 col-md-6 col-sm-6">--%>
+<%--                <div class="blog__item">--%>
+<%--                  <div class="blog__item__pic set-bg" data-setbg="${pageContext.request.contextPath}/style/style-main/img/blog/blog-1.jpg"></div>--%>
+<%--                  <div class="blog__item__text">--%>
+<%--                    <span><img src="style-main/img/icon/calendar.png" alt=""> 16 February 2020</span>--%>
+<%--                    <h5>What Curling Irons Are The Best Ones</h5>--%>
+<%--                    <a href="./blogdetails.html">Read More</a>--%>
+<%--                  </div>--%>
+<%--                </div>--%>
+<%--              </div>--%>
+<%--            </c:forEach>--%>
+  <c:forEach items="${articles}" var="c">
+    <tr>
+      <td>${c.cat_id}</td>
+      <td>${c.cat_name}</td>
+      <td>
+          ${c.parent_id}
+      </td>
+      <td>
+        <button class="las la-edit"></button>
+        <button class="las la-trash"></button>
+      </td>
+    </tr>
+  </c:forEach>
           </div>
         </div>
     </section>
     <!-- Blog Section End -->
   </jsp:body>
-</t:main>
+</t:main_dash>

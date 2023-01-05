@@ -12,6 +12,9 @@ public class Tag {
         this.value = value;
     }
 
+    public Tag(String name) {
+    }
+
     public int getTag_id() {
         return tag_id;
     }

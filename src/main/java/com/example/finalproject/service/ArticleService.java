@@ -7,7 +7,7 @@ import org.sql2o.Connection;
 import java.util.List;
 
 public class ArticleService {
-    public static List<Articles> getAll() {
+    public static List<Articles> findAll() {
         String sql = "select * from articles";
         try (Connection con = DbUtils.getConnection()) {
             return con.createQuery(sql).executeAndFetch(Articles.class);
