@@ -1,7 +1,9 @@
 package com.example.finalproject.controller;
 
 import com.example.finalproject.beans.Category;
+import com.example.finalproject.beans.User;
 import com.example.finalproject.service.CategoryService;
+import com.example.finalproject.service.UserService;
 import com.example.finalproject.utils.ServletUtils;
 
 import javax.servlet.*;
@@ -27,7 +29,11 @@ public class AdCategoryServlet extends HttpServlet {
                 break;
 
             case "/Add":
-                ServletUtils.forward("/views/vwCategory/Add.jsp", request, response);
+                response.setContentType("text/html;charset=UTF-8");
+                request.setCharacterEncoding("UTF-8");
+                List<User> listU = UserService.getAll();
+                request.setAttribute("editor", listU);
+                ServletUtils.forward("/views/vwDashboard/Admin-category-add.jsp", request, response);
                 break;
 
             case "/Edit":
@@ -83,7 +89,7 @@ public class AdCategoryServlet extends HttpServlet {
 
         Category c = new Category(0, name, pid);
         CategoryService.add(c);
-        ServletUtils.forward("/views/vwCategory/Add.jsp", request, response);
+        ServletUtils.forward("/views/vwDashboard/Admin-category-add.jsp", request, response);
     }
 
     private static void deleteCategory(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

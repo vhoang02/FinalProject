@@ -21,9 +21,9 @@
           <div class="card">
             <div class="card-header">
               <h3>All Projects</h3>
-              <button><span class="las la-plus">
+              <a class="btn btn-outline-dark" href="${pageContext.request.contextPath}/Admin/Category/Add" role="button"><span class="las la-plus">
                 Add Category
-              </span></button>
+              </span></a>
             </div>
             <div class="card-body">
               <div class="table-responsive">
@@ -45,8 +45,10 @@
                         ${c.parent_id}
                     </td>
                     <td>
-                      <button class="las la-edit"></button>
-                      <button class="las la-trash"></button>
+                      <a class="btn btn-outline-dark" href="${pageContext.request.contextPath}/Admin/Category/Edit?id=${c.cat_id}" role="button">
+                        <i class="las la-edit"></i>
+                      </a>
+                      <button class="btn btn-outline-dark"><i class="las la-trash"></i></button>
                     </td>
                   </tr>
                   </c:forEach>
