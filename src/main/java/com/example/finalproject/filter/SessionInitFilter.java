@@ -1,7 +1,8 @@
 package com.example.finalproject.filter;
 
-import com.ute.newsproject.beans.User;
-import com.ute.newsproject.beans.User;
+
+
+import com.example.finalproject.beans.User;
 
 import javax.servlet.*;
 import javax.servlet.annotation.WebFilter;

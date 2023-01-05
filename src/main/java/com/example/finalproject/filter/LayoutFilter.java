@@ -1,9 +1,10 @@
 package com.example.finalproject.filter;
 
 
-import com.ute.newsproject.service.TagService;
-import com.ute.newsproject.beans.Tag;
 
+
+import com.example.finalproject.beans.Tag;
+import com.example.finalproject.service.TagService;
 
 import javax.servlet.*;
 import javax.servlet.annotation.WebFilter;

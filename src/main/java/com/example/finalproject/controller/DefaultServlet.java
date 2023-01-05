@@ -1,7 +1,8 @@
 package com.example.finalproject.controller;
 
-import com.ute.newsproject.utils.ServletUtils;
-import com.ute.newsproject.utils.ServletUtils;
+
+
+import com.example.finalproject.utils.ServletUtils;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
