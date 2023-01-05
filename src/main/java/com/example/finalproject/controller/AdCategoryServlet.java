@@ -24,7 +24,9 @@ public class AdCategoryServlet extends HttpServlet {
         switch (path) {
             case "/Index":
                 List<Category> list = CategoryService.getAll();
+                int count = CategoryService.countCat();
                 request.setAttribute("categories", list);
+                request.setAttribute("count", count);
                 ServletUtils.forward("/views/vwDashboard/Admin-category.jsp", request, response);
                 break;
 
@@ -46,7 +48,7 @@ public class AdCategoryServlet extends HttpServlet {
                 Category c = CategoryService.get(id);
                 if (c != null) {
                     request.setAttribute("category", c);
-                    ServletUtils.forward("/views/vwCategory/Edit.jsp", request, response);
+                    ServletUtils.forward("/views/vwDashboard/Admin-category-edit.jsp", request, response);
                 } else {
                     ServletUtils.redirect("/Admin/Category", request, response);
                 }

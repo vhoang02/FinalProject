@@ -7,8 +7,8 @@
       <div class="cards">
         <div class="card-singles">
           <div>
-            <h1>79</h1>
-            <span>Projects</span>
+            <h1>${count}</h1>
+            <span>Category</span>
           </div>
           <div>
             <span class="las la-clipboard-list"></span>

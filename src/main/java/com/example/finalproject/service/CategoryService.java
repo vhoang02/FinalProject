@@ -69,4 +69,12 @@ public class CategoryService {
             return list.get(0);
         }
     }
+    public static int countCat( ) {
+        String query = "SELECT * FROM categories";
+        try (Connection con = DbUtils.getConnection()) {
+            List<Category> list = con.createQuery(query)
+                    .executeAndFetch(Category.class);
+            return list.size();
+        }
+    }
 }
