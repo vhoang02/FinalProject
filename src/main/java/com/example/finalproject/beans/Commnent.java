@@ -3,69 +3,58 @@ package com.example.finalproject.beans;
 import java.time.LocalDateTime;
 
 public class Commnent {
-    private int comArtID, comUID, comID;
-    private  String comm;
-    private LocalDateTime comDate;
+    private int comment_articles_id, comment_users_id, comment_id;
+    private  String comment;
+    private LocalDateTime comment_date;
 
     public Commnent() {
     }
 
-    public Commnent(int comArtID, int comUID, int comID, String comm, LocalDateTime comDate) {
-        this.comArtID = comArtID;
-        this.comUID = comUID;
-        this.comID = comID;
-        this.comm = comm;
-        this.comDate = comDate;
+    public Commnent(int comment_articles_id, int comment_users_id, int comment_id, String comment, LocalDateTime comment_date) {
+        this.comment_articles_id = comment_articles_id;
+        this.comment_users_id = comment_users_id;
+        this.comment_id = comment_id;
+        this.comment = comment;
+        this.comment_date = comment_date;
     }
 
-    public int getComArtID() {
-        return comArtID;
+    public int getComment_articles_id() {
+        return comment_articles_id;
     }
 
-    public void setComArtID(int comArtID) {
-        this.comArtID = comArtID;
+    public void setComment_articles_id(int comment_articles_id) {
+        this.comment_articles_id = comment_articles_id;
     }
 
-    public int getComUID() {
-        return comUID;
+    public int getComment_users_id() {
+        return comment_users_id;
     }
 
-    public void setComUID(int comUID) {
-        this.comUID = comUID;
+    public void setComment_users_id(int comment_users_id) {
+        this.comment_users_id = comment_users_id;
     }
 
-    public int getComID() {
-        return comID;
+    public int getComment_id() {
+        return comment_id;
     }
 
-    public void setComID(int comID) {
-        this.comID = comID;
+    public void setComment_id(int comment_id) {
+        this.comment_id = comment_id;
     }
 
-    public String getComm() {
-        return comm;
+    public String getComment() {
+        return comment;
     }
 
-    public void setComm(String comm) {
-        this.comm = comm;
+    public void setComment(String comment) {
+        this.comment = comment;
     }
 
-    public LocalDateTime getComDate() {
-        return comDate;
+    public LocalDateTime getComment_date() {
+        return comment_date;
     }
 
-    public void setComDate(LocalDateTime comDate) {
-        this.comDate = comDate;
-    }
-
-    @Override
-    public String toString() {
-        return "Commnent{" +
-                "comArtID=" + comArtID +
-                ", comUID=" + comUID +
-                ", comID=" + comID +
-                ", comm='" + comm + '\'' +
-                ", comDate=" + comDate +
-                '}';
+    public void setComment_date(LocalDateTime comment_date) {
+        this.comment_date = comment_date;
     }
 }

@@ -3,120 +3,106 @@ package com.example.finalproject.beans;
 import java.time.LocalDateTime;
 
 public class Articles {
-    private int artID, view, cateID, wID, stt;
-    private String tit, abstr, cont;
-    private LocalDateTime dtime;
-    private boolean pre;
+    private int articles_id, views, categories_id, writer_id, status;
+    private String title, abstracts, content;
+    private LocalDateTime publish_date;
+    private boolean premium;
 
     public Articles() {
     }
 
-    public Articles(int artID, int view, int cateID, int wID, int stt, String tit, String abstr, String cont, LocalDateTime dtime, boolean pre) {
-        this.artID = artID;
-        this.view = view;
-        this.cateID = cateID;
-        this.wID = wID;
-        this.stt = stt;
-        this.tit = tit;
-        this.abstr = abstr;
-        this.cont = cont;
-        this.dtime = dtime;
-        this.pre = pre;
+    public Articles(int articles_id, String title, LocalDateTime publish_date,  int views, String abstracts, String content, int categories_id, boolean premium, int writer_id, int status) {
+        this.articles_id = articles_id;
+        this.views = views;
+        this.categories_id = categories_id;
+        this.writer_id = writer_id;
+        this.status = status;
+        this.title = title;
+        this.abstracts = abstracts;
+        this.content = content;
+        this.publish_date = publish_date;
+        this.premium = premium;
     }
 
-    public int getArtID() {
-        return artID;
+    public int getArticles_id() {
+        return articles_id;
     }
 
-    public void setArtID(int artID) {
-        this.artID = artID;
+    public void setArticles_id(int articles_id) {
+        this.articles_id = articles_id;
     }
 
-    public int getView() {
-        return view;
+    public int getViews() {
+        return views;
     }
 
-    public void setView(int view) {
-        this.view = view;
+    public void setViews(int views) {
+        this.views = views;
     }
 
-    public int getCateID() {
-        return cateID;
+    public int getCategories_id() {
+        return categories_id;
     }
 
-    public void setCateID(int cateID) {
-        this.cateID = cateID;
+    public void setCategories_id(int categories_id) {
+        this.categories_id = categories_id;
     }
 
-    public int getwID() {
-        return wID;
+    public int getWriter_id() {
+        return writer_id;
     }
 
-    public void setwID(int wID) {
-        this.wID = wID;
+    public void setWriter_id(int writer_id) {
+        this.writer_id = writer_id;
     }
 
-    public int getStt() {
-        return stt;
+    public int getStatus() {
+        return status;
     }
 
-    public void setStt(int stt) {
-        this.stt = stt;
+    public void setStatus(int status) {
+        this.status = status;
     }
 
-    public String getTit() {
-        return tit;
+    public String getTitle() {
+        return title;
     }
 
-    public void setTit(String tit) {
-        this.tit = tit;
+    public void setTitle(String title) {
+        this.title = title;
     }
 
-    public String getAbstr() {
-        return abstr;
+    public String getAbstracts() {
+        return abstracts;
     }
 
-    public void setAbstr(String abstr) {
-        this.abstr = abstr;
+    public void setAbstracts(String abstracts) {
+        this.abstracts = abstracts;
     }
 
-    public String getCont() {
-        return cont;
+    public String getContent() {
+        return content;
     }
 
-    public void setCont(String cont) {
-        this.cont = cont;
+    public void setContent(String content) {
+        this.content = content;
     }
 
-    public LocalDateTime getDtime() {
-        return dtime;
+    public LocalDateTime getPublish_date() {
+        return publish_date;
     }
 
-    public void setDtime(LocalDateTime dtime) {
-        this.dtime = dtime;
+    public void setPublish_date(LocalDateTime publish_date) {
+        this.publish_date = publish_date;
     }
 
-    public boolean isPre() {
-        return pre;
+    public boolean isPremium() {
+        return premium;
     }
 
-    public void setPre(boolean pre) {
-        this.pre = pre;
-    }
-
-    @Override
-    public String toString() {
-        return "Articles{" +
-                "artID=" + artID +
-                ", view=" + view +
-                ", cateID=" + cateID +
-                ", wID=" + wID +
-                ", stt=" + stt +
-                ", tit='" + tit + '\'' +
-                ", abstr='" + abstr + '\'' +
-                ", cont='" + cont + '\'' +
-                ", dtime=" + dtime +
-                ", pre=" + pre +
-                '}';
+    public void setPremium(boolean premium) {
+        this.premium = premium;
     }
 }
+
+

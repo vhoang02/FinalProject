@@ -35,7 +35,7 @@ public class TagService {
         String insertSql = "insert into tags(value) values (:value)";
         try (Connection con = DbUtils.getConnection()) {
             con.createQuery(insertSql)
-                    .addParameter("value", c.getVal())
+                    .addParameter("value", c.getValue())
                     .executeUpdate();
         }
     }
@@ -44,8 +44,8 @@ public class TagService {
         String sql = "update tags set value = :value where tag_id = :tag_id";
         try (Connection con = DbUtils.getConnection()) {
             con.createQuery(sql)
-                    .addParameter("tag_id", c.getTagID())
-                    .addParameter("value", c.getVal())
+                    .addParameter("tag_id", c.getTag_id())
+                    .addParameter("value", c.getValue())
                     .executeUpdate();
         }
     }

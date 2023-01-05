@@ -3,66 +3,58 @@ package com.example.finalproject.beans;
 import java.time.LocalDateTime;
 
 public class User {
-    private int uID, exp, rol;
-    private String uName, pass, name, secName, email, otp;
-    private LocalDateTime issue, birth, otpExp;
-
+    private int user_id;
+    private String username;
+    private String password;
+    private String name;
+    private LocalDateTime issue_at;
+    private int expiration;
+    private int role;
+    private String second_name;
+    private LocalDateTime dob;
+    private String email;
+    private String otp;
+    private String otp_exp;
     public User() {
     }
 
-    public User(int uID, int exp, int rol, String uName, String pass, String name, String secName, String email, String otp, LocalDateTime issue, LocalDateTime birth, LocalDateTime otpExp) {
-        this.uID = uID;
-        this.exp = exp;
-        this.rol = rol;
-        this.uName = uName;
-        this.pass = pass;
+    public User(int user_id, String username, String password, String name, LocalDateTime issue_at, int expiration, int role, String second_name, LocalDateTime dob, String email, String otp, String otp_exp) {
+        this.user_id = user_id;
+        this.username = username;
+        this.password = password;
         this.name = name;
-        this.secName = secName;
+        this.issue_at = issue_at;
+        this.expiration = expiration;
+        this.role = role;
+        this.second_name = second_name;
+        this.dob = dob;
         this.email = email;
         this.otp = otp;
-        this.issue = issue;
-        this.birth = birth;
-        this.otpExp = otpExp;
+        this.otp_exp = otp_exp;
     }
 
-    public int getuID() {
-        return uID;
+    public int getUser_id() {
+        return user_id;
     }
 
-    public void setuID(int uID) {
-        this.uID = uID;
+    public void setUser_id(int user_id) {
+        this.user_id = user_id;
     }
 
-    public int getExp() {
-        return exp;
+    public String getUsername() {
+        return username;
     }
 
-    public void setExp(int exp) {
-        this.exp = exp;
+    public void setUsername(String username) {
+        this.username = username;
     }
 
-    public int getRol() {
-        return rol;
+    public String getPassword() {
+        return password;
     }
 
-    public void setRol(int rol) {
-        this.rol = rol;
-    }
-
-    public String getuName() {
-        return uName;
-    }
-
-    public void setuName(String uName) {
-        this.uName = uName;
-    }
-
-    public String getPass() {
-        return pass;
-    }
-
-    public void setPass(String pass) {
-        this.pass = pass;
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     public String getName() {
@@ -73,12 +65,44 @@ public class User {
         this.name = name;
     }
 
-    public String getSecName() {
-        return secName;
+    public LocalDateTime getIssue_at() {
+        return issue_at;
     }
 
-    public void setSecName(String secName) {
-        this.secName = secName;
+    public void setIssue_at(LocalDateTime issue_at) {
+        this.issue_at = issue_at;
+    }
+
+    public int getExpiration() {
+        return expiration;
+    }
+
+    public void setExpiration(int expiration) {
+        this.expiration = expiration;
+    }
+
+    public int getRole() {
+        return role;
+    }
+
+    public void setRole(int role) {
+        this.role = role;
+    }
+
+    public String getSecond_name() {
+        return second_name;
+    }
+
+    public void setSecond_name(String second_name) {
+        this.second_name = second_name;
+    }
+
+    public LocalDateTime getDob() {
+        return dob;
+    }
+
+    public void setDob(LocalDateTime dob) {
+        this.dob = dob;
     }
 
     public String getEmail() {
@@ -97,45 +121,11 @@ public class User {
         this.otp = otp;
     }
 
-    public LocalDateTime getIssue() {
-        return issue;
+    public String getOtp_exp() {
+        return otp_exp;
     }
 
-    public void setIssue(LocalDateTime issue) {
-        this.issue = issue;
-    }
-
-    public LocalDateTime getBirth() {
-        return birth;
-    }
-
-    public void setBirth(LocalDateTime birth) {
-        this.birth = birth;
-    }
-
-    public LocalDateTime getOtpExp() {
-        return otpExp;
-    }
-
-    public void setOtpExp(LocalDateTime otpExp) {
-        this.otpExp = otpExp;
-    }
-
-    @Override
-    public String toString() {
-        return "User{" +
-                "uID=" + uID +
-                ", exp=" + exp +
-                ", rol=" + rol +
-                ", uName='" + uName + '\'' +
-                ", pass='" + pass + '\'' +
-                ", name='" + name + '\'' +
-                ", secName='" + secName + '\'' +
-                ", email='" + email + '\'' +
-                ", otp='" + otp + '\'' +
-                ", issue=" + issue +
-                ", birth=" + birth +
-                ", otpExp=" + otpExp +
-                '}';
+    public void setOtp_exp(String otp_exp) {
+        this.otp_exp = otp_exp;
     }
 }

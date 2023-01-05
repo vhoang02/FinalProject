@@ -1,47 +1,38 @@
 package com.example.finalproject.beans;
 
 public class TagHasArticles {
-    private int tagArtID, tagsID, ArtID;
+    private int tag_articles_id, tagsArti_id, articlesTag_id;
 
     public TagHasArticles() {
     }
 
-    public TagHasArticles(int tagArtID, int tagsID, int artID) {
-        this.tagArtID = tagArtID;
-        this.tagsID = tagsID;
-        ArtID = artID;
+    public TagHasArticles(int tag_articles_id, int tagsArti_id, int articlesTag_id) {
+        this.tag_articles_id = tag_articles_id;
+        this.tagsArti_id = tagsArti_id;
+        this.articlesTag_id = articlesTag_id;
     }
 
-    public int getTagArtID() {
-        return tagArtID;
+    public int getTag_articles_id() {
+        return tag_articles_id;
     }
 
-    public void setTagArtID(int tagArtID) {
-        this.tagArtID = tagArtID;
+    public void setTag_articles_id(int tag_articles_id) {
+        this.tag_articles_id = tag_articles_id;
     }
 
-    public int getTagsID() {
-        return tagsID;
+    public int getTagsArti_id() {
+        return tagsArti_id;
     }
 
-    public void setTagsID(int tagsID) {
-        this.tagsID = tagsID;
+    public void setTagsArti_id(int tagsArti_id) {
+        this.tagsArti_id = tagsArti_id;
     }
 
-    public int getArtID() {
-        return ArtID;
+    public int getArticlesTag_id() {
+        return articlesTag_id;
     }
 
-    public void setArtID(int artID) {
-        ArtID = artID;
-    }
-
-    @Override
-    public String toString() {
-        return "TagHasArticles{" +
-                "tagArtID=" + tagArtID +
-                ", tagsID=" + tagsID +
-                ", ArtID=" + ArtID +
-                '}';
+    public void setArticlesTag_id(int articlesTag_id) {
+        this.articlesTag_id = articlesTag_id;
     }
 }

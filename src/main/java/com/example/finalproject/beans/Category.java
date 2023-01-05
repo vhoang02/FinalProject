@@ -1,48 +1,41 @@
 package com.example.finalproject.beans;
 
 public class Category {
-    private int catID, parID;
-    private  String cateName;
+    private int cat_id;
+    private  String cat_name;
+
+    private int parent_id;
 
     public Category() {
     }
 
-    public Category(int catID, int parID, String cateName) {
-        this.catID = catID;
-        this.parID = parID;
-        this.cateName = cateName;
+    public Category(int cat_id, String cat_name, int parent_id) {
+        this.cat_id = cat_id;
+        this.cat_name = cat_name;
+        this.parent_id = parent_id;
     }
 
-    public int getCatID() {
-        return catID;
+    public int getCat_id() {
+        return cat_id;
     }
 
-    public void setCatID(int catID) {
-        this.catID = catID;
+    public void setCat_id(int cat_id) {
+        this.cat_id = cat_id;
     }
 
-    public int getParID() {
-        return parID;
+    public String getCat_name() {
+        return cat_name;
     }
 
-    public void setParID(int parID) {
-        this.parID = parID;
+    public void setCat_name(String cat_name) {
+        this.cat_name = cat_name;
     }
 
-    public String getCateName() {
-        return cateName;
+    public int getParent_id() {
+        return parent_id;
     }
 
-    public void setCateName(String cateName) {
-        this.cateName = cateName;
-    }
-
-    @Override
-    public String toString() {
-        return "Category{" +
-                "catID=" + catID +
-                ", parID=" + parID +
-                ", cateName='" + cateName + '\'' +
-                '}';
+    public void setParent_id(int parent_id) {
+        this.parent_id = parent_id;
     }
 }

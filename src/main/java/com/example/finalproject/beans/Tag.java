@@ -12,33 +12,19 @@ public class Tag {
         this.value = value;
     }
 
-    public Tag(String value) {
-        this.tag_id = -1;
-        this.value = value;
-    }
-
-
-    public int getTagID() {
+    public int getTag_id() {
         return tag_id;
     }
 
-    public void setTagID(int tagID) {
-        this.tag_id = tagID;
+    public void setTag_id(int tag_id) {
+        this.tag_id = tag_id;
     }
 
-    public String getVal() {
+    public String getValue() {
         return value;
     }
 
-    public void setVal(String val) {
+    public void setValue(String value) {
         this.value = value;
-    }
-
-    @Override
-    public String toString() {
-        return "Tag{" +
-                "tagID=" + tag_id +
-                ", value='" + value + '\'' +
-                '}';
     }
 }
