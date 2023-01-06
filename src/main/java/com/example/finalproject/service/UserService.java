@@ -42,4 +42,17 @@ public class UserService {
             return list.get(0);
         }
     }
+    public static User getUMaCat(int idCat) {
+        String sql = "SELECT users.* FROM categories INNER JOIN users ON categories.parent_id = users.user_id WHERE cat_id = :cat_id";
+        try (Connection con = DbUtils.getConnection()) {
+            List<User> list = con.createQuery(sql)
+                    .addParameter("cat_id", idCat)
+                    .executeAndFetch(User.class);
+
+            if (list.size() == 0)
+                return null;
+
+            return list.get(0);
+        }
+    }
 }

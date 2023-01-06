@@ -1,8 +1,11 @@
 package com.example.finalproject.controller;
 
+import com.example.finalproject.beans.Articles;
 import com.example.finalproject.beans.Category;
 import com.example.finalproject.beans.User;
+import com.example.finalproject.service.ArticleService;
 import com.example.finalproject.service.CategoryService;
+import com.example.finalproject.service.CommentService;
 import com.example.finalproject.service.UserService;
 import com.example.finalproject.utils.ServletUtils;
 
@@ -46,14 +49,20 @@ public class AdCategoryServlet extends HttpServlet {
                 }
 
                 Category c = CategoryService.get(id);
+                User editor = UserService.getUMaCat(id);
+                List<User> listEditor = UserService.getAll();
                 if (c != null) {
                     request.setAttribute("category", c);
+                    request.setAttribute("oldEditor", editor);
+                    request.setAttribute("listE", listEditor);
                     ServletUtils.forward("/views/vwDashboard/Admin-category-edit.jsp", request, response);
                 } else {
                     ServletUtils.redirect("/Admin/Category", request, response);
                 }
                 break;
-
+            case "/Delete":
+                deleteCategory(request, response);
+                break;
             default:
                 ServletUtils.forward("/views/404.jsp", request, response);
                 break;
@@ -68,9 +77,6 @@ public class AdCategoryServlet extends HttpServlet {
                 addCategory(request, response);
                 break;
 
-            case "/Delete":
-                deleteCategory(request, response);
-                break;
 
             case "/Update":
                 updateCategory(request, response);
@@ -96,6 +102,11 @@ public class AdCategoryServlet extends HttpServlet {
 
     private static void deleteCategory(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         int id = Integer.parseInt(request.getParameter("CatID"));
+        List<Articles> listAr = ArticleService.getByCatID(id);
+        for (int i = 0; i < listAr.size(); i++) {
+            CommentService.DeleteByAID(listAr.get(i).getArticles_id());
+        }
+        ArticleService.DeleteByCatID(id);
         CategoryService.delete(id);
         ServletUtils.redirect("/Admin/Category", request, response);
     }

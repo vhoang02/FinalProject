@@ -27,4 +27,13 @@ public class CommentService {
             return list.get(0);
         }
     }
+    public static void DeleteByAID(int article_id)
+    {
+        String query = "DELETE FROM comments WHERE comment_articles_id = :comment_articles_id";
+        try(Connection con = DbUtils.getConnection()){
+            con.createQuery(query)
+                    .addParameter("comment_articles_id",article_id)
+                    .executeUpdate();
+        }
+    }
 }

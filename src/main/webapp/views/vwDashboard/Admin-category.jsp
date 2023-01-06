@@ -20,7 +20,7 @@
         <div class="projects">
           <div class="card">
             <div class="card-header">
-              <h3>All Projects</h3>
+              <h3>All Category</h3>
               <a class="btn btn-outline-dark" href="${pageContext.request.contextPath}/Admin/Category/Add" role="button"><span class="las la-plus">
                 Add Category
               </span></a>
@@ -33,7 +33,7 @@
                     <td>Category ID</td>
                     <td>Category Name</td>
                     <td>Parent ID</td>
-                    <td>Edit</td>
+                    <td>Edit|Delete</td>
                   </tr>
                   </thead>
                   <tbody>
@@ -48,7 +48,7 @@
                       <a class="btn btn-outline-dark" href="${pageContext.request.contextPath}/Admin/Category/Edit?id=${c.cat_id}" role="button">
                         <i class="las la-edit"></i>
                       </a>
-                      <button class="btn btn-outline-dark"><i class="las la-trash"></i></button>
+                      <a href="${pageContext.request.contextPath}/Admin/Category/Delete?CatID=${c.cat_id}" class="btn btn-outline-dark"><i class="las la-trash"></i></a>
                     </td>
                   </tr>
                   </c:forEach>
