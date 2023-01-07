@@ -1,7 +1,7 @@
 <input type="checkbox" id="nav-toggle">
 <div class="sidebar">
     <div class="sidebar-brand">
-        <h2><span class="lab la-accusoft"></span><span>Newspaper</span></h2>
+        <h2><span class="lab la-accusoft"></span><span>sss</span></h2>
     </div>
     <div class="sidebar-menu">
         <ul>
@@ -18,7 +18,7 @@
                     <span>Category</span></a>
             </li>
             <li>
-                <a href="./admin-tag.html"><span class="las la-hashtag"></span>
+                <a href="${pageContext.request.contextPath}/views/vwDashboard/Admin-tag.jsp"><span class="las la-hashtag"></span>
                     <span>Tag</span></a>
             </li>
             <li>

@@ -10,7 +10,9 @@
     <input type="search" placeholder="Search here">
   </div>
   <div class="user-wrapper">
-    <img src="avt.jpg" width="40px" height="40px" alt="img avatar">
+
+      <img src="https://www.vecteezy.com/vector-art/290610-administration-vector-icon" width="40px" height="40px" alt="img avatar"  >
+
     <div>
       <h4>Viet Hoang</h4>
       <small>Super admin</small>

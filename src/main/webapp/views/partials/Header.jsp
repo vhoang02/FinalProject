@@ -1,4 +1,5 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!-- Page Preloder -->
 <div id="preloder">
     <div class="loader"></div>
@@ -24,9 +25,10 @@
                     </div>
                 </div>
             </div>
+
             <div class="col-lg-7 col-md-3">
                 <div class="header__logo">
-                    <a href=""><img src="${pageContext.request.contextPath}/style/style-main/img/logo.png" alt="logo"></a>
+                    <a href="${pageContext.request.contextPath}/Home/Index"><img src="${pageContext.request.contextPath}/style/style-main/img/logo.png" alt="logo"></a>
                 </div>
             </div>
             <div class="col">

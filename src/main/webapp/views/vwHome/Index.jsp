@@ -53,22 +53,25 @@
 
     <!-- Blog Section Begin -->
     <section class="blog spad">
+      <c:forEach items="${article}" var="a">
         <div class="container">
           <div class="row">
-            <c:forEach var="a" begin="1" end="5">
+
               <div class="col-lg-4 col-md-6 col-sm-6">
                 <div class="blog__item">
                   <div class="blog__item__pic set-bg" data-setbg="${pageContext.request.contextPath}/style/style-main/img/blog/blog-1.jpg"></div>
                   <div class="blog__item__text">
-                    <span><img src="style-main/img/icon/calendar.png" alt=""> 16 February 2020</span>
-                    <h5>What Curling Irons Are The Best Ones</h5>
+                    <span><img src="style-main/img/icon/calendar.png" alt=""> ${a.publish_date}</span>
+                    <h5>${a.title}</h5>
                     <a href="./blogdetails.html">Read More</a>
                   </div>
                 </div>
               </div>
-            </c:forEach>
+
+
           </div>
         </div>
+    </c:forEach>
     </section>
     <!-- Blog Section End -->
   </jsp:body>
