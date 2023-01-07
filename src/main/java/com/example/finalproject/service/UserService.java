@@ -1,5 +1,6 @@
 package com.example.finalproject.service;
 
+import com.example.finalproject.beans.Category;
 import com.example.finalproject.beans.User;
 import com.example.finalproject.utils.DbUtils;
 import org.sql2o.Connection;
@@ -62,4 +63,49 @@ public class UserService {
             return list.get(0);
         }
     }
+
+    public static int countUser( ) {
+        String query = "SELECT * FROM users";
+        try (Connection con = DbUtils.getConnection()) {
+            List<User> list = con.createQuery(query)
+                    .executeAndFetch(User.class);
+            return list.size();
+        }
+    }
+    public static int countAdmin( ) {
+        String query = "SELECT * FROM users WHERE role = 0";
+        try (Connection con = DbUtils.getConnection()) {
+            List<User> list = con.createQuery(query)
+                    .executeAndFetch(User.class);
+            return list.size();
+        }
+    }
+
+    public static int countEditor( ) {
+        String query = "SELECT * FROM users WHERE role = 1";
+        try (Connection con = DbUtils.getConnection()) {
+            List<User> list = con.createQuery(query)
+                    .executeAndFetch(User.class);
+            return list.size();
+        }
+    }
+
+    public static int countWriter( ) {
+        String query = "SELECT * FROM users WHERE role = 2";
+        try (Connection con = DbUtils.getConnection()) {
+            List<User> list = con.createQuery(query)
+                    .executeAndFetch(User.class);
+            return list.size();
+        }
+    }
+
+    public static int countReader( ) {
+        String query = "SELECT * FROM users WHERE role = 3";
+        try (Connection con = DbUtils.getConnection()) {
+            List<User> list = con.createQuery(query)
+                    .executeAndFetch(User.class);
+            return list.size();
+        }
+    }
+
 }

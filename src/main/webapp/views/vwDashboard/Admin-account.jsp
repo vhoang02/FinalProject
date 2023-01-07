@@ -24,25 +24,31 @@
                             </span>Add user</button>
           </div>
           <div class="card-body">
+          <c:forEach items="${listUser}" var="acc">
             <div class="user">
               <div class="info">
                 <img src="avt.jpg" width="40px" height="40px" alt="avatar">
                 <div>
-                  <h4>Lewis</h4>
-                  <small>CEO Excerpt</small>
+                  <h4>${acc.name}</h4>
+                  <small>${acc.second_name}</small>
                 </div>
               </div>
               <div class="contact">
-                <span class="las la-user-circle"></span>
-                <span class="las la-comment"></span>
-                <span class="las la-envelope"></span>
+                <a class="btn btn-outline-dark" href="${pageContext.request.contextPath}/Admin/Account/Detail?uID=${acc.user_id}" role="button">
+                <i class="las la-user-circle"></i>
+                </a>
+                <a class="btn btn-outline-dark" href="mailto:${acc.email}" role="button">
+                <i class="las la-envelope"></i>
+                </a>
               </div>
               <div class="edit">
-                <button class="las la-edit" type="button"></button>
-                <button class="las la-trash" type="button"></button>
+                <a class="btn btn-outline-dark" href="${pageContext.request.contextPath}/Admin/Account/Edit?uID=${acc.user_id}" role="button">
+                  <i class="las la-edit"></i>
+                </a>
+                <a href="${pageContext.request.contextPath}/Admin/Account/Delete?uID=${acc.user_id}" class="btn btn-outline-dark"><i class="las la-trash"></i></a>
               </div>
             </div>
-
+          </c:forEach>
           </div>
           <div class="card-footer">
             <div class="pagination">
