@@ -22,19 +22,19 @@
                             <div class="col-sm-3">
                                 <select class="form-control" name="parID" id="parID">
                                     <c:forEach items="${editor}" var="o">
-                                        <option value="${o.user_id}">${o.second_name}</option>
+                                        <option value="${o.user_id}">${o.name}</option>
                                     </c:forEach>
                                 </select>
                             </div>
                         </div>
                     </div>
                     <div class="card-footer text-muted">
-                        <a class="btn btn-outline-success" href="${pageContext.request.contextPath}/Admin/Category"
+                        <a class="btn btn-outline-dark" href="${pageContext.request.contextPath}/Admin/Category"
                            role="button">
                             <i class="fa fa-backward" aria-hidden="true"></i>
                             Back
                         </a>
-                        <button type="submit" class="btn btn-primary">
+                        <button type="submit" class="btn btn-outline-dark">
                             <i class="fa fa-check" aria-hidden="true"></i>
                             Save
                         </button>

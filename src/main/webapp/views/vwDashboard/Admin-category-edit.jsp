@@ -14,6 +14,8 @@
                             <input name="CatID" value="${category.cat_id}" type="text" class="form-control"
                                    id="txtCatID" readonly>
                         </div>
+                    </div>
+                        <div class="form-group">
                         <div class="form-group">
                             <label for="txtCatName">Category</label>
                             <input name="CatName" value="${category.cat_name}" type="text" class="form-control"
@@ -26,9 +28,9 @@
                             <label for="parID" class="col-sm-3 control-label">Editor</label>
                             <div class="col-sm-3">
                                 <select class="form-control" name="parID" id="parID">
-                                    <option value="${oldEditor.user_id}">${oldEditor.second_name}</option>
+                                    <option value="${oldEditor.user_id}">${oldEditor.name}</option>
                                     <c:forEach items="${listE}" var="o">
-                                        <option value="${o.user_id}">${o.second_name}</option>
+                                        <option value="${o.user_id}">${o.name}</option>
                                     </c:forEach>
                                 </select>
                             </div>

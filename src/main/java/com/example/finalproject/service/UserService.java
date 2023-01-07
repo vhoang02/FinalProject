@@ -14,6 +14,13 @@ public class UserService {
         }
     }
 
+    public static List<User> getEditor() {
+        String sql = "SELECT* FROM users WHERE role = 1";
+        try (Connection con = DbUtils.getConnection()) {
+            return con.createQuery(sql).executeAndFetch(User.class);
+        }
+    }
+
     public static User get(int id) {
         String sql = "select * from users where user_id = :user_id";
         try (Connection con = DbUtils.getConnection()) {

@@ -36,7 +36,7 @@ public class AdCategoryServlet extends HttpServlet {
             case "/Add":
                 response.setContentType("text/html;charset=UTF-8");
                 request.setCharacterEncoding("UTF-8");
-                List<User> listU = UserService.getAll();
+                List<User> listU = UserService.getEditor();
                 request.setAttribute("editor", listU);
                 ServletUtils.forward("/views/vwDashboard/Admin-category-add.jsp", request, response);
                 break;
@@ -50,7 +50,7 @@ public class AdCategoryServlet extends HttpServlet {
 
                 Category c = CategoryService.get(id);
                 User editor = UserService.getUMaCat(id);
-                List<User> listEditor = UserService.getAll();
+                List<User> listEditor = UserService.getEditor();
                 if (c != null) {
                     request.setAttribute("category", c);
                     request.setAttribute("oldEditor", editor);

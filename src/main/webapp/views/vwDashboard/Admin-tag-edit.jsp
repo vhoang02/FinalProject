@@ -14,6 +14,7 @@
               <input name="TagID" value="${Tagg.tag_id}" type="text" class="form-control"
                      id="TagID" readonly>
             </div>
+            <div class="card-body">
             <div class="form-group">
               <label for="TagVal">Category</label>
               <input name="TagVal" value="${Tagg.value}" type="text" class="form-control"

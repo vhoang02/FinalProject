@@ -1,5 +1,9 @@
 <%@ tag pageEncoding="UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"  %>
+<%@attribute name="css" fragment="true" required="false" %>
+<%@attribute name="js" fragment="true" required="false" %>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
