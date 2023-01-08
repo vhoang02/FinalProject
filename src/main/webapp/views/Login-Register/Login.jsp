@@ -34,6 +34,12 @@
         </div>
         <div class="signin-form">
           <h2 class="form-title">Sign in</h2>
+          <div class="alert alert-warning alert-dismissible fade show" role="alert">
+            <strong>Login failed!</strong> You should check in on some of those field below.
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
           <form method="POST" class="register-form" id="login-form">
             <div class="form-group">
               <label for="txtUsername"><i class="zmdi zmdi-account material-icons-name"></i></label>
