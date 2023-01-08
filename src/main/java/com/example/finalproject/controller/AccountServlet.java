@@ -68,14 +68,22 @@ public class AccountServlet extends HttpServlet {
         String email = request.getParameter("email");
         String re_pass = request.getParameter("re_pass");
 
+
         String strDob = request.getParameter("dob") + " 00:00";
         DateTimeFormatter df = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm");
         LocalDateTime dob = LocalDateTime.parse(strDob, df);
+
+        LocalDateTime issue_at = LocalDateTime.now();
+
+        int expiration = 7;
         int role = 0;
 
-            User c = new User(0, username, bcryptHashString, name, role, second_name, dob, email);
-            UserModel.add(c);
-            ServletUtils.forward("/views/Login-Register/Login.jsp", request,response);
+        String otp = null;
+        LocalDateTime otp_exp = null;
+
+        User c = new User(0, username, bcryptHashString, name, issue_at, expiration,role, second_name, dob, email, otp, otp_exp);
+        UserModel.add(c);
+        ServletUtils.forward("/views/Login-Register/Register.jsp", request,response);
 
     }
 
