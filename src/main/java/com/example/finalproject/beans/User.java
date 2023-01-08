@@ -7,22 +7,30 @@ public class User {
     private String username;
     private String password;
     private String name;
+    private LocalDateTime issue_at;
+    private int expiration;
     private int role;
     private String second_name;
     private LocalDateTime dob;
     private String email;
-    public User() {
-    }
+    private String otp;
+    private LocalDateTime otp_exp;
+    public User(){
 
-    public User(int user_id, String username, String password, String name, int role, String second_name, LocalDateTime dob, String email) {
+    }
+    public User(int user_id, String username, String password, String name, LocalDateTime issue_at, int expiration, int role, String second_name, LocalDateTime dob, String email, String otp, LocalDateTime otp_exp) {
         this.user_id = user_id;
         this.username = username;
         this.password = password;
         this.name = name;
+        this.issue_at = issue_at;
+        this.expiration = expiration;
         this.role = role;
         this.second_name = second_name;
         this.dob = dob;
         this.email = email;
+        this.otp = otp;
+        this.otp_exp = otp_exp;
     }
 
     public int getUser_id() {
@@ -57,6 +65,22 @@ public class User {
         this.name = name;
     }
 
+    public LocalDateTime getIssue_at() {
+        return issue_at;
+    }
+
+    public void setIssue_at(LocalDateTime issue_at) {
+        this.issue_at = issue_at;
+    }
+
+    public int getExpiration() {
+        return expiration;
+    }
+
+    public void setExpiration(int expiration) {
+        this.expiration = expiration;
+    }
+
     public int getRole() {
         return role;
     }
@@ -87,6 +111,18 @@ public class User {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public String getOtp() {
+        return otp;
+    }
+
+    public void setOtp(String otp) {
+        this.otp = otp;
+    }
+
+    public LocalDateTime getOtp_exp() {
+        return otp_exp;
     }
 
 }
