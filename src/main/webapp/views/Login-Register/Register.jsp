@@ -87,7 +87,7 @@
           if( $('#agree-term').is(':checked') )
           {
             $('#frmRegister').off('submit').submit();
-            alert("Success! Return to login");
+            alert("Success!");
           }
           else {
             alert("You must agree all statements");
