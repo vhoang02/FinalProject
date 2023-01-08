@@ -16,8 +16,8 @@
                         </button>
                         <div class="dropdown-menu align-items-center">
                             <span class="dropdown-item">Hello, Viet Hoang</span>
-                            <a class="dropdown-item" href="<c:url value="../Login-Register/Login.jsp"/>">Log in</a>
-                            <a class="dropdown-item" href="<c:url value="../Login-Register/Register.jsp"/>">Sign up</a>
+                            <a class="dropdown-item" href="${pageContext.request.contextPath}/Account/Login">Log in</a>
+                            <a class="dropdown-item" href="${pageContext.request.contextPath}/Account/Register">Sign up</a>
                             <a href="admin-dashboard.html" class="dropdown-item">Admin</a>
                             <a class="dropdown-item" href="edit-profile.html">Edit profile</a>
                             <a class="dropdown-item" href="#">Exit</a>
