@@ -10,19 +10,33 @@
         <div class="row align-items-center">
             <div class="col-lg-4 col-md-3 ">
                 <div>
-                    <div class="dropdown">
-                        <button class="btn" style="border-color: #fff" type="button" data-toggle="dropdown" aria-expanded="false">
-                            <img src="${pageContext.request.contextPath}/style/style-main/img/avt.jpg" style="border-radius: 50%;" width="60px" height="60px" alt="img avatar" >
-                        </button>
-                        <div class="dropdown-menu align-items-center">
-                            <span class="dropdown-item">Hello, Viet Hoang</span>
-                            <a class="dropdown-item" href="${pageContext.request.contextPath}/Account/Login">Log in</a>
-                            <a class="dropdown-item" href="${pageContext.request.contextPath}/Account/Register">Sign up</a>
-                            <a href="admin-dashboard.html" class="dropdown-item">Admin</a>
-                            <a class="dropdown-item" href="edit-profile.html">Edit profile</a>
-                            <a class="dropdown-item" href="#">Exit</a>
-                        </div>
-                    </div>
+                    <c:choose>
+                        <c:when test="${auth}">
+                            <form id="frmLogout" action="${pageContext.request.contextPath}/Account/Logout" method="post" ></form>
+                            <div class="dropdown">
+                                <button class="btn" style="border-color: #fff" type="button" data-toggle="dropdown" aria-expanded="false">
+                                    <img src="${pageContext.request.contextPath}/style/style-main/img/avt.jpg" style="border-radius: 50%;" width="60px" height="60px" alt="img avatar" >
+                                </button>
+                                <div class="dropdown-menu align-items-center">
+                                    <span class="dropdown-item">Hello, ${authUser.name}</span>
+                                    <a href="admin-dashboard.html" class="dropdown-item">Admin</a>
+                                    <a class="dropdown-item" href="edit-profile.html">Edit profile</a>
+                                    <a class="dropdown-item" href="javascript: $('#frmLogout').submit()">Sign out</a>
+                                </div>
+                            </div>
+                        </c:when>
+                        <c:otherwise>
+                            <div class="dropdown">
+                                <button class="btn" style="border-color: #fff" type="button" data-toggle="dropdown" aria-expanded="false">
+                                    <img src="${pageContext.request.contextPath}/style/style-main/img/avt.jpg" style="border-radius: 50%;" width="60px" height="60px" alt="img avatar" >
+                                </button>
+                                <div class="dropdown-menu align-items-center">
+                                    <a class="dropdown-item" href="${pageContext.request.contextPath}/Account/Login">Log in</a>
+                                    <a class="dropdown-item" href="${pageContext.request.contextPath}/Account/Register">Sign up</a>
+                                </div>
+                            </div>
+                        </c:otherwise>
+                    </c:choose>
                 </div>
             </div>
 

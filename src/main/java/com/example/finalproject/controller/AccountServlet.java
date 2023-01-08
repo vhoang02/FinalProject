@@ -82,4 +82,15 @@ public class AccountServlet extends HttpServlet {
     private void login(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
 
     }
+
+    private void logout(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
+        HttpSession session = request.getSession();
+        session.setAttribute("auth", false);
+        session.setAttribute("authUser", new User());
+
+        String url = request.getHeader("referer");
+        if(url == null)
+            url = "/Home";
+        ServletUtils.redirect(url, request, response);
+    }
 }
