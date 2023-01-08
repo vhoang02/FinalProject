@@ -76,22 +76,29 @@
   $('#frmRegister').on('submit', function (e){
     e.preventDefault();
     const username = $('#txtUsername').val();
-
-    $.getJSON('${pageContext.request.contextPath}/Account/IsAvailable?user=' + username, function (data){
-      if(data == true){
-        if( $('#agree-term').is(':checked') )
-        {
-          $('#frmRegister').off('submit').submit();
-          alert("Success! Return to login");
+    const password = $('#txtPassword').val();
+    const re_pass = $('#txtRe_pass').val();
+    if(password !== re_pass){
+      alert("Password does not match!!!");
+    }
+    else
+    {
+      $.getJSON('${pageContext.request.contextPath}/Account/IsAvailable?user=' + username, function (data){
+        if(data == true){
+          if( $('#agree-term').is(':checked') )
+          {
+            $('#frmRegister').off('submit').submit();
+            alert("Success! Return to login");
+          }
+          else {
+            alert("You must agree all statements");
+          }
         }
-        else {
-          alert("You must agree all statements");
+        else{
+          alert('Username is not available.');
         }
-      }
-      else{
-        alert('Username is not available.');
-      }
-    });
+      });
+    }
   });
 
   $('#txtDOB').datetimepicker({
