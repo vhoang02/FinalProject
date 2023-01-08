@@ -13,6 +13,7 @@
   <link rel="stylesheet" href="${pageContext.request.contextPath}/style/style-login/fonts/material-icon/css/material-design-iconic-font.min.css">
   <!-- Main css -->
   <link rel="stylesheet" href="${pageContext.request.contextPath}/style/style-login/css/style.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
 </head>
 <body>
 <!-- Page Preloder -->
@@ -28,19 +29,19 @@
       <div class="signin-content">
         <div class="signin-image">
           <figure><img src="${pageContext.request.contextPath}/style/style-login/images/signin-image.jpg" alt="sing up image"></figure>
-          <a href="<c:url value="Register.jsp"/>" class="signup-image-link">Create an account</a>
+          <a href="${pageContext.request.contextPath}/Account/Register" class="signup-image-link">Create an account</a>
           <a href="<c:url value="../vwHome/Index.jsp"/>" class="signup-image-link">Back to home</a>
         </div>
         <div class="signin-form">
           <h2 class="form-title">Sign in</h2>
           <form method="POST" class="register-form" id="login-form">
             <div class="form-group">
-              <label for="your_name"><i class="zmdi zmdi-account material-icons-name"></i></label>
-              <input type="text" name="your_name" id="your_name" placeholder="Your Name"/>
+              <label for="txtUsername"><i class="zmdi zmdi-account material-icons-name"></i></label>
+              <input type="text" name="username" id="txtUsername" placeholder="Your Name"/>
             </div>
             <div class="form-group">
-              <label for="your_pass"><i class="zmdi zmdi-lock"></i></label>
-              <input type="password" name="your_pass" id="your_pass" placeholder="Password"/>
+              <label for="txtPassword"><i class="zmdi zmdi-lock"></i></label>
+              <input type="password" name="password" id="txtPassword" placeholder="Password"/>
             </div>
             <div class="form-group">
               <input type="checkbox" name="remember-me" id="remember-me" class="agree-term" />
@@ -66,5 +67,7 @@
 <!-- JS -->
 <script src="${pageContext.request.contextPath}/style/style-login/vendor/jquery/jquery.min.js"></script>
 <script src="${pageContext.request.contextPath}/style/style-login/js/main.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
 </body>
 </html>
