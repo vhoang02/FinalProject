@@ -30,16 +30,18 @@
         <div class="signin-image">
           <figure><img src="${pageContext.request.contextPath}/style/style-login/images/signin-image.jpg" alt="sing up image"></figure>
           <a href="${pageContext.request.contextPath}/Account/Register" class="signup-image-link">Create an account</a>
-          <a href="<c:url value="../vwHome/Index.jsp"/>" class="signup-image-link">Back to home</a>
+          <a href="${pageContext.request.contextPath}/Home" class="signup-image-link">Back to home</a>
         </div>
         <div class="signin-form">
           <h2 class="form-title">Sign in</h2>
-          <div class="alert alert-warning alert-dismissible fade show" role="alert">
-            <strong>Login failed!</strong> You should check in on some of those field below.
-            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
+          <c:if test="${hasError}">
+            <div class="alert alert-warning alert-dismissible fade show" role="alert">
+              <strong>Login failed!</strong> ${errorMessage}
+              <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+          </c:if>
           <form method="POST" class="register-form" id="login-form">
             <div class="form-group">
               <label for="txtUsername"><i class="zmdi zmdi-account material-icons-name"></i></label>
