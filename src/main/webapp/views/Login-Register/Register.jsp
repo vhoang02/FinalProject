@@ -11,8 +11,7 @@
   <!-- Font Icon -->
   <link rel="stylesheet" href="${pageContext.request.contextPath}/style/style-login/fonts/material-icon/css/material-design-iconic-font.min.css">
   <!-- Main css -->
-  <link rel="stylesheet" href="${pageContext.request.contextPath}/style/style-login/css/style.css">
-</head>
+  <link rel="stylesheet" href="${pageContext.request.contextPath}/style/style-login/css/style.css"></head>
 <body>
 <div class="main">
   <!-- Sign up form -->
@@ -62,8 +61,8 @@
         </div>
         <div class="signup-image">
           <figure><img src="${pageContext.request.contextPath}/style/style-login/images/signup-image.jpg" alt="sing up image"></figure>
-          <a href="<c:url value="Login.jsp"/>" class="signup-image-link">I am already member</a>
-          <a href="<c:url value="../vwHome/Index.jsp"/>" class="signup-image-link">Back to home</a>
+          <a href="${pageContext.request.contextPath}/Account/Login" class="signup-image-link">I am already member</a>
+          <a href="${pageContext.request.contextPath}/Home" class="signup-image-link">Back to home</a>
         </div>
       </div>
     </div>
