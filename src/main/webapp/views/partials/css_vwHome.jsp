@@ -6,6 +6,7 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
 <!-- Css Styles -->
+<link rel="stylesheet" href="${pageContext.request.contextPath}/style/style-main/css/Menu.css" type="text/css">
 <link rel="stylesheet" href="${pageContext.request.contextPath}/style/style-main/css/bootstrap.min.css" type="text/css">
 <link rel="stylesheet" href="${pageContext.request.contextPath}/style/style-main/css/font-awesome.min.css" type="text/css">
 <link rel="stylesheet" href="${pageContext.request.contextPath}/style/style-main/css/elegant-icons.css" type="text/css">

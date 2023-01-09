@@ -1,6 +1,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!-- Footer Section Begin -->
-<footer class="footer">
+<footer class="footer mt-5">
     <div class="container">
         <div class="row">
             <div class="col-lg-3 col-md-6 col-sm-6">
