@@ -67,10 +67,8 @@
                 <div class="projects">
                     <div class="card">
                         <div class="card-header">
-                            <h3>All Projects</h3>
-                            <button><span class="las la-plus">
-                                Add projects
-                            </span></button>
+                            <h3>All Articles</h3>
+
                         </div>
                         <div class="card-body">
                             <div class="table-responsive">

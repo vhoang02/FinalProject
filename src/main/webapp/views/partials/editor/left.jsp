@@ -6,7 +6,7 @@
     <div class="sidebar-menu">
         <ul>
             <li>
-                <a href="${pageContext.request.contextPath}/Admin/Project" ><span class="las la-clipboard-list"></span>
+                <a href="${pageContext.request.contextPath}/Editor/Project" ><span class="las la-clipboard-list"></span>
                     <span>Projects</span></a>
             </li>
             <li>
