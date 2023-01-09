@@ -3,7 +3,7 @@
     <%--@declare id="nav-toggle"--%><label for="nav-toggle">
       <span class="las la-bars"></span>
       <span class="lab la-accusoft"></span>
-      Newspaper
+      Editor
     </label>
   </h2>
   <div class="user-wrapper">

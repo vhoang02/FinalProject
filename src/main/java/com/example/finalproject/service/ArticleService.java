@@ -62,6 +62,15 @@ public class ArticleService {
         }
     }
 
+    public static void DeleteByWId(int wId) {
+        final String query = "DELETE FROM articles WHERE writer_id = :writer_id";
+        try (Connection con = DbUtils.getConnection()) {
+            con.createQuery(query)
+                    .addParameter("writer_id", wId)
+                    .executeUpdate();
+        }
+    }
+
     public static void Delete(int id) {
         String sql = "DELETE FROM articles WHERE articles_id = :articles_id";
         try (Connection con = DbUtils.getConnection()) {
@@ -76,6 +85,24 @@ public class ArticleService {
         try (Connection con = DbUtils.getConnection()) {
             return con.createQuery(query)
                     .addParameter("categories_id", cat_id)
+                    .executeAndFetch(Articles.class);
+        }
+    }
+
+    public static List<Articles> getByEditor(int eId) {
+        final String query = "SELECT * FROM articles INNER JOIN categories ON articles.categories_id = categories.cat_id WHERE parent_id =:parent_id";
+        try (Connection con = DbUtils.getConnection()) {
+            return con.createQuery(query)
+                    .addParameter("parent_id", eId)
+                    .executeAndFetch(Articles.class);
+        }
+    }
+
+    public static List<Articles> getBywId(int id) {
+        final String query = "SELECT * FROM articles WHERE writer_id = :writer_id";
+        try (Connection con = DbUtils.getConnection()) {
+            return con.createQuery(query)
+                    .addParameter("writer_id", id)
                     .executeAndFetch(Articles.class);
         }
     }
@@ -122,8 +149,10 @@ public class ArticleService {
             return list.size();
         }
     }
+
+
     public static int countPubPre( ) {
-        String query = "SELECT * FROM articles WHERE `status` = 100002 AND premium = 0";
+        String query = "SELECT * FROM articles WHERE `status` = 100001 AND premium = 1  ";
         try (Connection con = DbUtils.getConnection()) {
             List<Articles> list = con.createQuery(query)
                     .executeAndFetch(Articles.class);
@@ -132,13 +161,55 @@ public class ArticleService {
     }
 
     public static int countDraftPre( ) {
-        String query = "SELECT * FROM articles WHERE `status` = 100001 AND premium = 0";
+        String query = "SELECT * FROM articles WHERE `status` = 100001 AND premium = 1";
         try (Connection con = DbUtils.getConnection()) {
             List<Articles> list = con.createQuery(query)
                     .executeAndFetch(Articles.class);
             return list.size();
         }
     }
+
+    public static int countByEID(int eId) {
+        String query = "SELECT * FROM articles INNER JOIN categories ON articles.categories_id = categories.cat_id WHERE parent_id =:parent_id";
+        try (Connection con = DbUtils.getConnection()) {
+            List<Articles> list = con.createQuery(query)
+                    .addParameter("parent_id", eId)
+                    .executeAndFetch(Articles.class);
+            return list.size();
+        }
+    }
+
+    public static int countDraftByEID(int eId) {
+        String query = "SELECT * FROM articles INNER JOIN categories ON articles.categories_id = categories.cat_id WHERE parent_id =:parent_id AND status = 100002";
+        try (Connection con = DbUtils.getConnection()) {
+            List<Articles> list = con.createQuery(query)
+                    .addParameter("parent_id", eId)
+                    .executeAndFetch(Articles.class);
+            return list.size();
+        }
+    }
+
+    public static int countPubByEID(int eId) {
+        String query = "SELECT * FROM articles INNER JOIN categories ON articles.categories_id = categories.cat_id WHERE parent_id =:parent_id AND status = 100001";
+        try (Connection con = DbUtils.getConnection()) {
+            List<Articles> list = con.createQuery(query)
+                    .addParameter("parent_id", eId)
+                    .executeAndFetch(Articles.class);
+            return list.size();
+        }
+    }
+
+    public static int countPreByeID(int eId) {
+        String query = "SELECT * FROM articles INNER JOIN categories ON articles.categories_id = categories.cat_id WHERE parent_id =:parent_id AND premium = 1";
+        try (Connection con = DbUtils.getConnection()) {
+            List<Articles> list = con.createQuery(query)
+                    .addParameter("parent_id", eId)
+                    .executeAndFetch(Articles.class);
+            return list.size();
+        }
+    }
+
+
 
 
 }

@@ -1,7 +1,7 @@
 <input type="checkbox" id="nav-toggle">
 <div class="sidebar">
     <div class="sidebar-brand">
-        <h2><span class="las la-igloo"></span><span>Dashboard</span></h2>
+        <h2><span class="lab la-osi"></span></span><span>Mangager</span></h2>
     </div>
     <div class="sidebar-menu">
         <ul>
@@ -10,17 +10,10 @@
                     <span>Projects</span></a>
             </li>
             <li>
-                <a href="${pageContext.request.contextPath}/Admin/Category"><span class="las la-stream"></span>
-                    <span>Category</span></a>
-            </li>
-            <li>
                 <a href="${pageContext.request.contextPath}/Admin/Tag"><span class="las la-hashtag"></span>
                     <span>Tag</span></a>
             </li>
-            <li>
-                <a href="${pageContext.request.contextPath}/Admin/Account"><span class="las la-user-circle"></span>
-                    <span>Accounts</span></a>
-            </li>
+
         </ul>
     </div>
 </div>
