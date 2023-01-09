@@ -81,7 +81,7 @@ public class AccountServlet extends HttpServlet {
         LocalDateTime issue_at = LocalDateTime.now();
 
         int expiration = 7;
-        int role = 0;
+        int role = 3;
 
         String otp = null;
         LocalDateTime otp_exp = null;
