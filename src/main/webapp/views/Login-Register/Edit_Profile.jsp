@@ -1,4 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -22,74 +23,61 @@
     <a class="nav-link" href="edit-password.html">Security</a>
   </nav>
   <hr class="mt-0 mb-4">
-  <div class="row">
-    <div class="col-xl-4">
-      <!-- Profile picture card-->
-      <div class="card mb-4 mb-xl-0">
-        <div class="card-header">Profile Picture</div>
-        <div class="card-body text-center">
-          <!-- Profile picture image-->
-          <img class="img-account-profile rounded-circle mb-2" src="http://bootdey.com/img/Content/avatar/avatar1.png" alt="">
-          <!-- Profile picture help block-->
-          <div class="small font-italic text-muted mb-4">JPG or PNG no larger than 5 MB</div>
-          <!-- Profile picture upload button-->
-          <button class="btn btn-primary" type="button">Upload new image</button>
+  <c:if test="${auth}">
+      <div class="col">
+        <!-- Account details card-->
+        <div class="card mb-4">
+          <div class="card-header">Account Details</div>
+          <div class="card-body">
+            <form action="${pageContext.request.contextPath}/Account/edit_profile" method="post">
+              <!-- Form Row-->
+              <div class="row gx-3 mb-3">
+                <!-- Form Group (username)-->
+                <div class="col-md-4">
+                  <label class="small mb-1" for="txtUsername">Username</label>
+                  <input class="form-control" name="username" id="txtUsername" type="text" value="${authUser.username} " readonly>
+                </div>
+                <!-- Form Group (name)-->
+                <div class="col-md-4">
+                  <label class="small mb-1" for="txtName">Name</label>
+                  <input class="form-control" name="name" id="txtName" type="text" value="${authUser.name} " readonly>
+                </div>
+                <!-- Form Group (second_name)-->
+                <div class="col-md-4">
+                  <label class="small mb-1" for="txtSecondname">Name</label>
+                  <input class="form-control" name="second_name" id="txtSecondname" type="text" value="${authUser.second_name} " readonly>
+                </div>
+              </div>
+              <div class="row gx-3 mb-3">
+                <!-- Form Group (issue_at)-->
+                <div class="col-md-4">
+                  <label class="small mb-1" for="txtIssue_at">Issue at</label>
+                  <input class="form-control" name="issue_at" id="txtIssue_at" type="datetime-local" value="${authUser.issue_at} " readonly>
+                </div>
+                <!-- Form Group (expiration)-->
+                <div class="col-md-4">
+                  <label class="small mb-1" for="txtExpiration">Expiration</label>
+                  <input class="form-control" name="expiration" id="txtExpiration" type="text" value="${authUser.expiration} days left" readonly>
+                </div>
+                <!-- Form Group (dob)-->
+                <div class="col-md-4">
+                  <label class="small mb-1" for="txtDOB">Day of Birth</label>
+                  <input class="form-control" name="dob" id="txtDOB" type="datetime-local" value="${authUser.dob}" readonly>
+                </div>
+              </div>
+              <div class="row gx-3 mb-3">
+                <div class="col">
+                  <label class="small mb-1" for="txtEmail">Email</label>
+                  <input class="form-control" name="email" id="txtEmail" type="text" value="${authUser.email}" readonly>
+                </div>
+              </div>
+            </form>
+          </div>
         </div>
       </div>
-    </div>
-    <div class="col-xl-8">
-      <!-- Account details card-->
-      <div class="card mb-4">
-        <div class="card-header">Account Details</div>
-        <div class="card-body">
-          <form>
-            <!-- Form Row-->
-            <div class="row gx-3 mb-3">
-              <!-- Form Group (username)-->
-              <div class="col-md-6">
-                <label class="small mb-1" for="txtUsername">Username</label>
-                <input class="form-control" name="username" id="txtUsername" type="text" placeholder="Enter your username">
-              </div>
-              <!-- Form Group (birthday)-->
-              <div class="col-md-6">
-                <label class="small mb-1" for="txtDOB">Birthday</label>
-                <input class="form-control" id="txtDOB" type="text" name="dob" placeholder="Enter your birthday">
-              </div>
-            </div>
-            <!-- Form Row-->
-            <div class="row gx-3 mb-3">
-              <!-- Form Group (first name)-->
-              <div class="col-md-6">
-                <label class="small mb-1" for="txtName">Name</label>
-                <input class="form-control" name="name" id="txtName" type="text" placeholder="Enter your name">
-              </div>
-              <!-- Form Group (last name)-->
-              <div class="col-md-6">
-                <label class="small mb-1" for="txtSecondname">Second name</label>
-                <input class="form-control" id="txtSecondname" name="second_name" type="text" placeholder="Enter your second name">
-              </div>
-            </div>
-            <!-- Form Group (email address)-->
-            <div class="mb-3">
-              <label class="small mb-1" for="txtEmail">Email address</label>
-              <input class="form-control" id="txtEmail" name="email" type="email" placeholder="Enter your email address">
-            </div>
-            <!-- Save changes button-->
-            <button class="btn btn-primary" type="submit">Save changes</button>
-          </form>
-        </div>
-      </div>
-    </div>
-  </div>
+  </c:if>
 </div>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-datetimepicker/2.5.20/jquery.datetimepicker.full.min.js" integrity="sha512-AIOTidJAcHBH2G/oZv9viEGXRqDNmfdPVPYOYKGy3fti0xIplnlgMHUGfuNRzC6FkzIo0iIxgFnr9RikFxK+sw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-<script>
-  $('#txtDOB').datetimepicker({
-    format: 'd/m/Y',
-    timepicker: false,
-    mask: true
-  });
-</script>
 </body>
 </html>
