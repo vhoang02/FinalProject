@@ -52,7 +52,7 @@
                 <!-- Form Group (issue_at)-->
                 <div class="col-md-4">
                   <label class="small mb-1" for="txtIssue_at">Issue at</label>
-                  <input class="form-control" name="issue_at" id="txtIssue_at" type="datetime-local" value="${authUser.issue_at} " readonly>
+                  <input class="form-control" name="issue_at" id="txtIssue_at" type="text" value="${authUser.issue_at} " readonly>
                 </div>
                 <!-- Form Group (expiration)-->
                 <div class="col-md-4">
