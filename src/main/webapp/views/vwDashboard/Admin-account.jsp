@@ -27,15 +27,18 @@
           <c:forEach items="${listUser}" var="acc">
             <div class="user">
               <div class="info">
-                <img src="avt.jpg" width="40px" height="40px" alt="avatar">
+                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="green" class="bi bi-person-circle" viewBox="0 0 16 16">
+                  <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
+                  <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
+                </svg>
                 <div>
-                  <h4>${acc.name}</h4>
-                  <small>${acc.second_name}</small>
+                  <h4>&nbsp; ${acc.name}</h4>
+                  <small>&nbsp;${acc.second_name}</small>
                 </div>
               </div>
               <div class="contact">
-                <a class="btn btn-outline-dark" href="${pageContext.request.contextPath}/Admin/Account/Detail?uID=${acc.user_id}" role="button">
-                <i class="las la-user-circle"></i>
+                <a class="btn btn-outline-dark" href="${pageContext.request.contextPath}/Admin/Account/Download?id=${acc.user_id}" role="button">
+                  <i class="las la-info"></i>
                 </a>
                 <a class="btn btn-outline-dark" href="mailto:${acc.email}" role="button">
                 <i class="las la-envelope"></i>
