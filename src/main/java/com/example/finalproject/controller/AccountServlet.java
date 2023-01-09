@@ -30,8 +30,9 @@ public class AccountServlet extends HttpServlet {
                 break;
             case "/Profile":
                 ServletUtils.forward("/views/Login-Register/Edit_Profile.jsp",request,response);
+                break;
             case "/IsAvailable":
-                String username = request.getParameter("user");
+                String username = request.getParameter("username");
                 User user = UserModel.findByUsername(username);
                 boolean isAvailable = (user == null);
 
@@ -129,4 +130,5 @@ public class AccountServlet extends HttpServlet {
             url = "/Home";
         ServletUtils.redirect(url, request, response);
     }
+
 }
