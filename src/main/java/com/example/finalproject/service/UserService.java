@@ -108,6 +108,15 @@ public class UserService {
         }
     }
 
+    public static void Delete(int id) {
+        String sql = "DELETE FROM users WHERE user_id = :user_id";
+        try (Connection con = DbUtils.getConnection()) {
+            con.createQuery(sql)
+                    .addParameter("user_id", id)
+                    .executeUpdate();
+        }
+    }
+
     public static void add(User c){
         String insertSql = "insert into web_final.users (username, password, name,issue_at,expiration , role, second_name, dob, email) " +
                 "values (:username,:password,:name,NOW(),:expiration,:role,:second_name,:dob,:email);";
@@ -116,6 +125,7 @@ public class UserService {
                     .addParameter("username", c.getUsername())
                     .addParameter("password", c.getPassword())
                     .addParameter("name", c.getName())
+                    .addParameter("expiration", c.getExpiration())
                     .addParameter("role", c.getRole())
                     .addParameter("second_name", c.getSecond_name())
                     .addParameter("dob", c.getDob())
@@ -124,6 +134,40 @@ public class UserService {
         }
     }
 
+    public static void Update(User c){
+        String insertSql = "UPDATE users SET password = :password, name = :name, expiration = :expiration, role = :role, second_name = :second_name, email = :email WHERE user_id = :user_id;";
+        try (Connection con = DbUtils.getConnection()) {
+            con.createQuery(insertSql)
+                    .addParameter("password", c.getPassword())
+                    .addParameter("name", c.getName())
+                    .addParameter("expiration", c.getExpiration())
+                    .addParameter("role", c.getRole())
+                    .addParameter("second_name", c.getSecond_name())
+                    .addParameter("email", c.getEmail())
+                    .addParameter("user_id", c.getUser_id())
+                    .executeUpdate();
+        }
+    }
+    public static User getByUName(String Uname) {
+        String sql = "SELECT* FROM users WHERE username = :username";
+        try (Connection con = DbUtils.getConnection()) {
+            List<User> list = con.createQuery(sql)
+                    .addParameter("username", Uname)
+                    .executeAndFetch(User.class);
 
+            if (list.size() == 0)
+                return null;
+
+            return list.get(0);
+        }
+    }
+    public static void get7DayPre(int uId){
+        String insertSql = "UPDATE users SET expiration = 7 WHERE user_id = :user_id;";
+        try (Connection con = DbUtils.getConnection()) {
+            con.createQuery(insertSql)
+                    .addParameter("user_id", uId)
+                    .executeUpdate();
+        }
+    }
 
 }

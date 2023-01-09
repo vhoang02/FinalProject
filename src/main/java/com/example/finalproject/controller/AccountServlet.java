@@ -128,5 +128,4 @@ public class AccountServlet extends HttpServlet {
         if(url == null)
             url = "/Home";
         ServletUtils.redirect(url, request, response);
-    }
-}
+    }}

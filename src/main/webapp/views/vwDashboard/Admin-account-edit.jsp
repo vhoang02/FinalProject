@@ -2,57 +2,23 @@
 <%@ taglib prefix="t" tagdir="/WEB-INF/tags" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <t:main_dash>
-
-    <jsp:attribute name="js">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-datetimepicker/2.5.20/jquery.datetimepicker.full.min.js"
-        integrity="sha512-AIOTidJAcHBH2G/oZv9viEGXRqDNmfdPVPYOYKGy3fti0xIplnlgMHUGfuNRzC6FkzIo0iIxgFnr9RikFxK+sw=="
-        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-<script>
-    $('#frmRegister').on('submit', function (e) {
-        e.preventDefault();
-
-        const txtUser = $('#txtUser').val();
-        if (txtUser.length === 0) {
-            alert('Invalid username.');
-            return;
-        }
-
-
-
-        $.getJSON('${pageContext.request.contextPath}/Account/IsAvailable?user=' + txtUser, function (data) {
-            if (data === true) {
-                $('#frmRegister').off('submit').submit();
-            } else {
-                alert('Username is not available.');
-            }
-        });
-    });
-
-    $('#txtIssue').datetimepicker({
-        format: 'd/m/Y',
-        timepicker: false,
-        mask: true
-    });
-
-    $('#txtDob').datetimepicker({
-        format: 'd/m/Y',
-        timepicker: false,
-        mask: true
-    });
-
-    $('#txtUser').select();
-</script>
-  </jsp:attribute>
     <jsp:body>
         <main>
-            <form method="post" id="frmRegister">
+            <form method="post">
                 <div class="card">
-                    <h5 class="card-header">New User</h5>
+                    <h5 class="card-header">Edit User</h5>
+
+                    <div class="card-body">
+                        <div class="form-group">
+                            <label for="txtID">User ID</label>
+                            <input name="txtID" value="${user.user_id}" type="text" class="form-control" id="txtID" autofocus readonly>
+                        </div>
+                    </div>
+
                     <div class="card-body">
                         <div class="form-group">
                             <label for="txtUser">Username</label>
-                            <input name="txtUser" type="text" class="form-control" id="txtUser" autofocus
-                                   placeholder="abc">
+                            <input name="txtUser" value="${user.username}" type="text" class="form-control" id="txtUser" autofocus readonly>
                         </div>
                     </div>
 
@@ -60,23 +26,30 @@
                         <div class="form-group">
                             <label for="txtPass">Password</label>
                             <input name="txtPass" type="text" class="form-control" id="txtPass" autofocus
-                                   placeholder="abc">
+                                   placeholder="New Password">
                         </div>
                     </div>
 
                     <div class="card-body">
                         <div class="form-group">
                             <label for="txtName">Name</label>
-                            <input name="txtName" type="text" class="form-control" id="txtName" autofocus
-                                   placeholder="Nguyen Van A">
+                            <input name="txtName" value="${user.name}" type="text" class="form-control" id="txtName" autofocus>
+                        </div>
+                    </div>
+
+                    <div class="card-body">
+                        <div class="form-group">
+                            <div class="form-group">
+                                <label for="txtIssue">Issue at</label>
+                                <input type="text" value="${begin}" class="form-control" id="txtIssue" name="txtIssue" readonly>
+                            </div>
                         </div>
                     </div>
 
                     <div class="card-body">
                         <div class="form-group">
                             <label for="txtExp">Expiration</label>
-                            <input name="txtExp" type="text" class="form-control" id="txtExp" autofocus
-                                   placeholder="Number of Days remaining">
+                            <input name="txtExp" value="${user.expiration}" type="text" class="form-control" id="txtExp" autofocus>
                         </div>
                     </div>
 
@@ -86,6 +59,7 @@
                             <label for="txtRole">Role</label>
                             <div>
                                 <select class="form-control" name="txtRole" id="txtRole">
+                                    <option value="${user.role}">${rol}</option>
                                     <option value="${0}">Admin</option>
                                     <option value="${1}">Editor</option>
                                     <option value="${2}">Writer</option>
@@ -98,8 +72,7 @@
                     <div class="card-body">
                         <div class="form-group">
                             <label for="txtSec">Second name</label>
-                            <input name="txtSec" type="text" class="form-control" id="txtSec" autofocus
-                                   placeholder="2nd name">
+                            <input name="txtSec" value="${user.second_name}" type="text" class="form-control" id="txtSec" autofocus>
                         </div>
                     </div>
 
@@ -107,7 +80,7 @@
                         <div class="form-group">
                             <div class="form-group">
                                 <label for="txtDob">Day of birth</label>
-                                <input type="text" class="form-control" id="txtDob" name="txtDob">
+                                <input type="text" value="${birthD}" class="form-control" id="txtDob" name="txtDob" readonly>
                             </div>
                         </div>
                     </div>
@@ -115,8 +88,8 @@
                     <div class="card-body">
                         <div class="form-group">
                             <label for="txtEmail">Email</label>
-                            <input name="txtEmail" type="text" class="form-control" id="txtEmail" autofocus
-                                   placeholder="abc@xyz.com">
+                            <input name="txtEmail" value="${user.email}" type="text" class="form-control" id="txtEmail" autofocus
+                                   placeholder="Email">
                         </div>
                     </div>
 
@@ -124,11 +97,11 @@
                     <div class="card-footer text-muted">
                         <a class="btn btn-outline-dark" href="${pageContext.request.contextPath}/Admin/Account"
                            role="button">
-
+                            <i class="fa fa-backward" aria-hidden="true"></i>
                             Back
                         </a>
-                        <button type="submit" class="btn btn-outline-dark">
-
+                        <button type="submit" class="btn btn-outline-dark" formaction="${pageContext.request.contextPath}/Admin/Account/Update">
+                            <i class="fa fa-check" aria-hidden="true"></i>
                             Save
                         </button>
                     </div>

@@ -2,13 +2,10 @@
   <h2>
     <%--@declare id="nav-toggle"--%><label for="nav-toggle">
       <span class="las la-bars"></span>
-      Project
+      <span class="lab la-accusoft"></span>
+      Newspaper
     </label>
   </h2>
-  <div class="search-wrapper">
-    <span class="las la-search"></span>
-    <input type="search" placeholder="Search here">
-  </div>
   <div class="user-wrapper">
 
     <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="dark" class="bi bi-person-circle" viewBox="0 0 16 16">

@@ -20,7 +20,7 @@
                     <div class="card-singles">
                         <div>
                             <h1>${coutDraft}</h1>
-                            <span>Draft Article</span>
+                            <span>Draft</span>
                         </div>
                         <div>
                             <span class="las la-clipboard-list"></span>
@@ -31,7 +31,7 @@
                     <div class="card-singles">
                         <div>
                             <h1>${countPub}</h1>
-                            <span>Public Article</span>
+                            <span>Public </span>
                         </div>
                         <div>
                             <span class="las la-clipboard-list"></span>
@@ -42,7 +42,7 @@
                     <div class="card-singles">
                         <div>
                             <h1>${countPubPre}</h1>
-                            <span>Premium Public Articles</span>
+                            <span>Pre Public</span>
                         </div>
                         <div>
                             <span class="las la-clipboard-list"></span>
@@ -53,13 +53,14 @@
                     <div class="card-singles">
                         <div>
                             <h1>${countDraftPre}</h1>
-                            <span>Premium Draft Articles</span>
+                            <span>Pre Draft </span>
                         </div>
                         <div>
                             <span class="las la-clipboard-list"></span>
                         </div>
                     </div>
                 </div>
+
             </div>
 
             <div class="recent-grid">
@@ -107,7 +108,7 @@
                                                 <a class="btn btn-outline-dark" href="${pageContext.request.contextPath}/Admin/Project/Detail?id=${p.articles_id}" role="button">
                                                     <i class="las la-edit"></i>
                                                 </a>
-                                                <a href="${pageContext.request.contextPath}/Admin/Project/Delete?id=${p.articles_id}" class="btn btn-outline-dark"><i class="las la-trash"></i></a>
+                                                <a href="${pageContext.request.contextPath}/Admin/Project/Delete?id=${p.articles_id}" class="btn btn-outline-dark" role="button"><i class="las la-trash"></i></a>
                                             </td>
                                         </tr>
                                     </c:forEach>

@@ -5,6 +5,7 @@ import com.example.finalproject.beans.Category;
 import com.example.finalproject.beans.User;
 import com.example.finalproject.service.ArticleService;
 import com.example.finalproject.service.CategoryService;
+import com.example.finalproject.service.CommentService;
 import com.example.finalproject.service.UserService;
 import com.example.finalproject.utils.ServletUtils;
 
@@ -87,7 +88,8 @@ public class AdProjectServlet extends HttpServlet {
     private void deleteArticle(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         int id = Integer.parseInt(request.getParameter("id"));
         ArticleService.Delete(id);
-        ServletUtils.redirect("/Admin/Delete", request, response);
+        CommentService.DeleteByAID(id);
+        ServletUtils.redirect("/Admin/Project", request, response);
     }
 
 

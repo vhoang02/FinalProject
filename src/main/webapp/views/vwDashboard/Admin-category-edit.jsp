@@ -39,12 +39,10 @@
                     <div class="card-footer text-muted">
                         <a class="btn btn-outline-dark" href="${pageContext.request.contextPath}/Admin/Category"
                            role="button">
-                            <i class="fa fa-backward" aria-hidden="true"></i>
                             Back
                         </a>
                         <button type="submit" class="btn btn-outline-dark"
                                 formaction="${pageContext.request.contextPath}/Admin/Category/Update">
-                            <i class="fa fa-check" aria-hidden="true"></i>
                             Save
                         </button>
                     </div>

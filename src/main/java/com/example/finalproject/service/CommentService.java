@@ -36,4 +36,14 @@ public class CommentService {
                     .executeUpdate();
         }
     }
+
+    public static void DeleteByUid(int uId)
+    {
+        String query = "DELETE FROM comments WHERE comment_users_id = :comment_users_id";
+        try(Connection con = DbUtils.getConnection()){
+            con.createQuery(query)
+                    .addParameter("comment_users_id",uId)
+                    .executeUpdate();
+        }
+    }
 }
