@@ -77,4 +77,15 @@ public class CategoryService {
             return list.size();
         }
     }
+
+    public static int countCatByEId(int eId ) {
+        String query = "SELECT * FROM categories WHERE parent_id =:parent_id";
+        try (Connection con = DbUtils.getConnection()) {
+            List<Category> list = con.createQuery(query)
+                    .addParameter("parent_id", eId)
+                    .executeAndFetch(Category.class);
+            return list.size();
+        }
+    }
+
 }

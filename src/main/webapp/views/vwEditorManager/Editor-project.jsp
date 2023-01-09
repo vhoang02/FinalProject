@@ -19,6 +19,17 @@
         <div class="card">
           <div class="card-singles">
             <div>
+              <h1>${countCat}</h1>
+              <span>Category</span>
+            </div>
+            <div>
+              <span class="las la-clipboard-list"></span>
+            </div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-singles">
+            <div>
               <h1>${coutDraft}</h1>
               <span>Draft</span>
             </div>
@@ -42,18 +53,7 @@
           <div class="card-singles">
             <div>
               <h1>${countPubPre}</h1>
-              <span>Pre Public</span>
-            </div>
-            <div>
-              <span class="las la-clipboard-list"></span>
-            </div>
-          </div>
-        </div>
-        <div class="card">
-          <div class="card-singles">
-            <div>
-              <h1>${countDraftPre}</h1>
-              <span>Pre Draft </span>
+              <span>Premium</span>
             </div>
             <div>
               <span class="las la-clipboard-list"></span>
@@ -67,10 +67,7 @@
         <div class="projects">
           <div class="card">
             <div class="card-header">
-              <h3>All Projects</h3>
-              <button><span class="las la-plus">
-                                Add projects
-                            </span></button>
+              <h3>All Articles</h3>
             </div>
             <div class="card-body">
               <div class="table-responsive">
@@ -78,6 +75,7 @@
                   <thead>
                   <tr>
                     <td>Article ID</td>
+                    <td>Category ID</td>
                     <td>Article Tittle</td>
                     <td>Writer ID</td>
                     <td>Status</td>
@@ -88,6 +86,7 @@
                   <c:forEach items="${allart}" var="p">
                     <tr>
                       <td>${p.articles_id}</td>
+                      <td>${p.categories_id}</td>
                       <td>${p.title}</td>
                       <td>${p.writer_id}</td>
                       <c:choose>
@@ -105,8 +104,8 @@
                         </c:otherwise>
                       </c:choose>
                       <td>
-                        <a class="btn btn-outline-dark" href="${pageContext.request.contextPath}/Admin/Project/Detail?id=${p.articles_id}" role="button">
-                          <i class="las la-edit"></i>
+                        <a class="btn btn-outline-dark" href="${pageContext.request.contextPath}/Editor/Project/Detail?id=${p.articles_id}" role="button">
+                          <i class="las la-info"></i>
                         </a>
                         <a href="${pageContext.request.contextPath}/Admin/Project/Delete?id=${p.articles_id}" class="btn btn-outline-dark" role="button"><i class="las la-trash"></i></a>
                       </td>

@@ -9,6 +9,7 @@
         <entry key="file://$PROJECT_DIR$/src/main/webapp/views/vwDashboard/Admin-account-Add.jsp" value="file://$PROJECT_DIR$/src/main/webapp/views/vwDashboard" />
         <entry key="file://$PROJECT_DIR$/src/main/webapp/views/vwDashboard/Admin-account-edit.jsp" value="file://$PROJECT_DIR$/src/main/webapp/views/vwDashboard" />
         <entry key="file://$PROJECT_DIR$/src/main/webapp/views/vwDashboard/Admin-project-add.jsp" value="file://$PROJECT_DIR$/src/main/webapp/views/vwDashboard" />
+        <entry key="file://$PROJECT_DIR$/src/main/webapp/views/vwEditorManager/Editor-tag-edit.jsp" value="file://$PROJECT_DIR$/src/main/webapp/views/vwEditorManager" />
       </map>
     </option>
   </component>

@@ -1,5 +1,6 @@
 package com.example.finalproject.service;
 
+import com.example.finalproject.beans.Articles;
 import com.example.finalproject.beans.TagHasArticles;
 import com.example.finalproject.utils.DbUtils;
 import org.sql2o.Connection;
@@ -27,6 +28,13 @@ public class TagHasArtService {
             return list.get(0);
         }
     }
-
+    public static List<TagHasArticles> getByEditor(int eId) {
+        final String query = "SELECT tags_has_articles.* FROM tags_has_articles INNER JOIN articles ON tags_has_articles.articlesTag_id = articles.articles_id INNER JOIN categories ON articles.categories_id = categories.cat_id WHERE parent_id =:parent_id";
+        try (Connection con = DbUtils.getConnection()) {
+            return con.createQuery(query)
+                    .addParameter("parent_id", eId)
+                    .executeAndFetch(TagHasArticles.class);
+        }
+    }
 
 }

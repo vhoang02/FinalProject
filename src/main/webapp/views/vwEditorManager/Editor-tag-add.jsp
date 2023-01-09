@@ -1,7 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="t" tagdir="/WEB-INF/tags" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<t:main_dash>
+<t:main_edit>
 
   <jsp:body>
     <main>
@@ -16,11 +16,13 @@
             </div>
           </div>
           <div class="card-footer text-muted">
-            <a class="btn btn-outline-dark" href="${pageContext.request.contextPath}/Admin/Tag"
+            <a class="btn btn-outline-dark" href="${pageContext.request.contextPath}/Editor/Tag"
                role="button">
+              <i class="fa fa-backward" aria-hidden="true"></i>
               Back
             </a>
             <button type="submit" class="btn btn-outline-dark">
+              <i class="fa fa-check" aria-hidden="true"></i>
               Save
             </button>
           </div>
@@ -30,4 +32,4 @@
 
 
   </jsp:body>
-</t:main_dash>
+</t:main_edit>
