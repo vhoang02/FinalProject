@@ -29,7 +29,7 @@ public class AccountServlet extends HttpServlet {
                 ServletUtils.forward("/views/Login-Register/Login.jsp", request, response);
                 break;
             case "/Profile":
-                ServletUtils.forward("/",request,response);
+                ServletUtils.forward("/views/Login-Register/Edit_Profile.jsp",request,response);
             case "/IsAvailable":
                 String username = request.getParameter("user");
                 User user = UserModel.findByUsername(username);

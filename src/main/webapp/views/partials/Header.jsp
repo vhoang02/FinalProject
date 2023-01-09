@@ -20,7 +20,7 @@
                                 <div class="dropdown-menu align-items-center">
                                     <span class="dropdown-item">Hello, ${authUser.name}</span>
                                     <a href="admin-dashboard.html" class="dropdown-item">Admin</a>
-                                    <a class="dropdown-item" href="edit-profile.html">Edit profile</a>
+                                    <a class="dropdown-item" href="${pageContext.request.contextPath}/Account/Profile">Edit profile</a>
                                     <a class="dropdown-item" href="javascript: $('#frmLogout').submit()">Sign out</a>
                                 </div>
                             </div>
