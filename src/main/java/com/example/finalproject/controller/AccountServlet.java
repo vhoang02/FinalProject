@@ -55,6 +55,9 @@ public class AccountServlet extends HttpServlet {
             case "/Login":
                 login(request,response);
                 break;
+            case "/Logout":
+                logout(request,response);
+                break;
         }
     }
 
