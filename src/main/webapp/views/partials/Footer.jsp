@@ -20,7 +20,7 @@
                 <div class="footer__widget">
                     <h6>Newspaper</h6>
                     <ul>
-                        <li><a href="contact.html">Contact Us</a></li>
+                        <li><a href="${pageContext.request.contextPath}/Home/Contact">Contact Us</a></li>
                     </ul>
                 </div>
             </div>
@@ -40,13 +40,11 @@
         <div class="row">
             <div class="col-lg-12 text-center">
                 <div class="footer__copyright__text">
-                    <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
                     <p>Copyright
                         <script>
                             document.write(new Date().getFullYear());
                         </script>
                     </p>
-                    <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
                 </div>
             </div>
         </div>
