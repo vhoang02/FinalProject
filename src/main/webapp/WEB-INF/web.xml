@@ -7,9 +7,10 @@
         <servlet-name>default</servlet-name>
         <url-pattern>/style/*</url-pattern>
     </servlet-mapping>
-    <welcome-file-list>
-        <welcome-file>/views/vwHome/Index.jsp</welcome-file>
-    </welcome-file-list>
+    <servlet-mapping>
+        <servlet-name>default</servlet-name>
+        <url-pattern>/public/*</url-pattern>
+    </servlet-mapping>
     <filter-mapping>
         <filter-name>LayoutFilter</filter-name>
         <url-pattern>/*</url-pattern>
