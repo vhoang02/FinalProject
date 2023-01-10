@@ -23,8 +23,7 @@ public class EditorProjectServlet extends HttpServlet {
 
         switch (path) {
             case "/Index":
-                /*int eId = Integer.parseInt(request.getParameter("eId"));*/
-                int eId = 3;
+                int eId = Integer.parseInt(request.getParameter("eId"));
                 List<Articles> list = ArticleService.getByEditor(eId);
                 int countArt = ArticleService.countByEID(eId);
                 int coutDraft = ArticleService.countDraftByEID(eId);

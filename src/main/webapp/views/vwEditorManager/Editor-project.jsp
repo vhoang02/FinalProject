@@ -116,18 +116,7 @@
                 </table>
               </div>
             </div>
-            <div class="card-footer">
-              <div class="pagination">
-                <a href="#">«</a>
-                <a href="#">1</a>
-                <a class="active" href="#">2</a>
-                <a href="#">3</a>
-                <a href="#">4</a>
-                <a href="#">5</a>
-                <a href="#">6</a>
-                <a href="#">»</a>
-              </div>
-            </div>
+
           </div>
         </div>
       </div>

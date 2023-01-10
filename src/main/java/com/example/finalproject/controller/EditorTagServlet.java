@@ -23,8 +23,7 @@ public class EditorTagServlet extends HttpServlet {
 
         switch (path) {
             case "/Index":
-                int editID = 3;
-                /*int editID = Integer.parseInt(request.getParameter("editID"));*/
+                int editID = Integer.parseInt(request.getParameter("editID"));
                 List<TagHasArticles> listTagArt = TagHasArtService.getByEditor(editID);
                 List<Tag> list = TagService.findAll();
                 int t = TagService.counTag();
