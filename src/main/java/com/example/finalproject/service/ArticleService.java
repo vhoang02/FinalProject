@@ -246,8 +246,33 @@ public class ArticleService {
             return list.size();
         }
     }
+    public  static  void addNews(Articles a){
+        final String query = "INSERT INTO articles(title, publish_date, views, abstracts, content, categories_id, premium, writer_id, status) VALUES (:title,NOW(),:views,:abstracts,:content,:categories_id,:premium,:writer_id,:status)";
+        try(Connection con  = DbUtils.getConnection())
+        {
+            con.createQuery(query)
+                    .addParameter("title",a.getTitle())
+                    .addParameter("views",a.getViews())
+                    .addParameter("abstracts", a.getAbstracts())
+                    .addParameter("content",a.getContent())
+                    .addParameter("categories_id",a.getCategories_id())
+                    .addParameter("premium",a.isPremium())
+                    .addParameter("writer_id",a.getWriter_id())
+                    .addParameter("status",a.getStatus())
+                    .executeUpdate();
+        }
+    }
 
-    //Lấy các bài viết theo danh mục chọn ra 5 bài phân thành 1 trang
-
+    public static Articles findArtNew(){
+        final String query = "SELECT max(articles_id) as articles_id FROM articles " ;
+        try (Connection con = DbUtils.getConnection()) {
+            List<Articles> list = con.createQuery(query)
+                    .executeAndFetch(Articles.class);
+            if (list.size() == 0){
+                return null;
+            }
+            return list.get(0);
+        }
+    }
 
 }
