@@ -15,10 +15,11 @@ public class User {
     private String email;
     private String otp;
     private LocalDateTime otp_exp;
+    private int premium;
     public User(){
 
     }
-    public User(int user_id, String username, String password, String name, LocalDateTime issue_at, int expiration, int role, String second_name, LocalDateTime dob, String email, String otp, LocalDateTime otp_exp) {
+    public User(int user_id, String username, String password, String name, LocalDateTime issue_at, int expiration, int role, String second_name, LocalDateTime dob, String email, String otp, LocalDateTime otp_exp, int premium) {
         this.user_id = user_id;
         this.username = username;
         this.password = password;
@@ -31,6 +32,10 @@ public class User {
         this.email = email;
         this.otp = otp;
         this.otp_exp = otp_exp;
+        this.premium = premium;
+    }
+
+    public User(int i, String username, String bcryptHashString, String name, LocalDateTime issue_at, int expiration, int role, String second_name, LocalDateTime dob, String email, String otp, LocalDateTime otp_exp) {
     }
 
     public int getUser_id() {
@@ -125,4 +130,8 @@ public class User {
         return otp_exp;
     }
 
+
+    public int getPremium() {
+        return premium;
+    }
 }

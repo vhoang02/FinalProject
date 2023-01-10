@@ -3,9 +3,11 @@ package com.example.finalproject.beans;
 import java.time.LocalDateTime;
 
 public class Cmt {
-    private int comArtID, comUID, comID;
-    private  String comm;
-    private LocalDateTime comDate;
+    private static int comArtID;
+    private static int comUID;
+    private int comID;
+    private static String comm;
+    private static LocalDateTime comDate;
 
     public Cmt() {
     }
@@ -18,7 +20,7 @@ public class Cmt {
         this.comDate = comDate;
     }
 
-    public int getComArtID() {
+    public static int getComArtID() {
         return comArtID;
     }
 
@@ -26,7 +28,7 @@ public class Cmt {
         this.comArtID = comArtID;
     }
 
-    public int getComUID() {
+    public static int getComUID() {
         return comUID;
     }
 
@@ -42,7 +44,7 @@ public class Cmt {
         this.comID = comID;
     }
 
-    public String getComm() {
+    public static String getComm() {
         return comm;
     }
 
@@ -50,7 +52,7 @@ public class Cmt {
         this.comm = comm;
     }
 
-    public LocalDateTime getComDate() {
+    public static LocalDateTime getComDate() {
         return comDate;
     }
 
