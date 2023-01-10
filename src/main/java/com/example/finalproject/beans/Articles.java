@@ -8,6 +8,7 @@ public class Articles {
     private LocalDateTime publish_date;
     private boolean premium;
 
+
     public Articles() {
     }
 
@@ -22,6 +23,7 @@ public class Articles {
         this.content = content;
         this.publish_date = publish_date;
         this.premium = premium;
+
     }
 
     public int getArticles_id() {

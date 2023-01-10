@@ -1,9 +1,12 @@
 package com.example.finalproject.controller;
 
 import com.example.finalproject.beans.Articles;
+import com.example.finalproject.beans.Tag;
+import com.example.finalproject.beans.User;
 import com.example.finalproject.service.ArticleService;
 import com.example.finalproject.service.CategoryService;
 import com.example.finalproject.service.CommentService;
+import com.example.finalproject.service.TagService;
 import com.example.finalproject.utils.ServletUtils;
 
 import javax.servlet.*;
@@ -36,8 +39,6 @@ public class EditorProjectServlet extends HttpServlet {
                 request.setAttribute("countPub", countPub);
                 request.setAttribute("countPubPre", countPubPre);
                 request.setAttribute("countCat", countCat);
-
-
                 ServletUtils.forward("/views/vwEditorManager/Editor-project.jsp", request, response);
                 break;
 
@@ -50,10 +51,12 @@ public class EditorProjectServlet extends HttpServlet {
                     id = Integer.parseInt(request.getParameter("id"));
                 } catch (NumberFormatException ignored) {
                 }
+                List<Tag> lT = TagService.findAllByAid(id);
                 String eid = request.getParameter("eId");
                 Articles c = ArticleService.get(id);
                 if (c != null) {
                     request.setAttribute("dtl", c);
+                    request.setAttribute("listTag", lT);
                     ServletUtils.forward("/views/vwEditorManager/Editor-project-edit.jsp", request, response);
                 } else {
                     ServletUtils.redirect("/Editor/Project?eId="+eid, request, response);
@@ -80,14 +83,20 @@ public class EditorProjectServlet extends HttpServlet {
     }
     private void updateDraft(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         int id = Integer.parseInt(request.getParameter("artID"));
-        String eid = request.getParameter("eId");
+        HttpSession session = request.getSession();
+        User Author = (User) session.getAttribute("authUser");
+
+        int eid = Author.getUser_id();
         ArticleService.UpdateDraft(id);
         ServletUtils.redirect("/Editor/Project?eId="+eid, request, response);
     }
 
     private void deleteArticle(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         int id = Integer.parseInt(request.getParameter("id"));
-        String eid = request.getParameter("eId");
+        HttpSession session = request.getSession();
+        User Author = (User) session.getAttribute("authUser");
+
+        int eid = Author.getUser_id();
         ArticleService.Delete(id);
         CommentService.DeleteByAID(id);
         ServletUtils.redirect("/Editor/Project?eId="+eid, request, response);

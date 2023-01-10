@@ -9,10 +9,6 @@
                 <a href="${pageContext.request.contextPath}/Writer/Project" ><span class="las la-clipboard-list"></span>
                     <span>Projects</span></a>
             </li>
-            <li>
-                <a href="${pageContext.request.contextPath}/Writer/Tag"><span class="las la-hashtag"></span>
-                    <span>Tag</span></a>
-            </li>
 
         </ul>
     </div>
