@@ -210,6 +210,26 @@ public class ArticleService {
     }
 
 
+    public static int countByWid(int wId) {
+        String query = "SELECT * FROM articles WHERE writer_id = :writer_id";
+        try (Connection con = DbUtils.getConnection()) {
+            List<Articles> list = con.createQuery(query)
+                    .addParameter("writer_id", wId)
+                    .executeAndFetch(Articles.class);
+            return list.size();
+        }
+    }
+
+    public static int countDrafPubByWid(int wId, int check) {
+        String query = "SELECT * FROM articles WHERE writer_id = :writer_id AND status = :status";
+        try (Connection con = DbUtils.getConnection()) {
+            List<Articles> list = con.createQuery(query)
+                    .addParameter("writer_id", wId)
+                    .addParameter("status", check)
+                    .executeAndFetch(Articles.class);
+            return list.size();
+        }
+    }
 
 
 

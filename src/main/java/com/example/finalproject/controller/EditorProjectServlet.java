@@ -40,19 +40,23 @@ public class EditorProjectServlet extends HttpServlet {
 
                 ServletUtils.forward("/views/vwEditorManager/Editor-project.jsp", request, response);
                 break;
+
+            case "/Delete":
+                deleteArticle(request,response);
+                break;
             case "/Detail":
                 int id = 0;
                 try {
                     id = Integer.parseInt(request.getParameter("id"));
                 } catch (NumberFormatException ignored) {
                 }
-
+                String eid = request.getParameter("eId");
                 Articles c = ArticleService.get(id);
                 if (c != null) {
                     request.setAttribute("dtl", c);
                     ServletUtils.forward("/views/vwEditorManager/Editor-project-edit.jsp", request, response);
                 } else {
-                    ServletUtils.redirect("/Editor/Project", request, response);
+                    ServletUtils.redirect("/Editor/Project?eId="+eid, request, response);
                 }
                 break;
             default:
@@ -76,14 +80,16 @@ public class EditorProjectServlet extends HttpServlet {
     }
     private void updateDraft(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         int id = Integer.parseInt(request.getParameter("artID"));
+        String eid = request.getParameter("eId");
         ArticleService.UpdateDraft(id);
-        ServletUtils.redirect("/Editor/Project", request, response);
+        ServletUtils.redirect("/Editor/Project?eId="+eid, request, response);
     }
 
     private void deleteArticle(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         int id = Integer.parseInt(request.getParameter("id"));
+        String eid = request.getParameter("eId");
         ArticleService.Delete(id);
         CommentService.DeleteByAID(id);
-        ServletUtils.redirect("/Editor/Project", request, response);
+        ServletUtils.redirect("/Editor/Project?eId="+eid, request, response);
     }
 }

@@ -141,7 +141,7 @@
                   <i class="fa fa-backward" aria-hidden="true"></i>
                   Back
                 </a>
-                <button type="submit" class="btn btn-outline-dark" formaction="${pageContext.request.contextPath}/Editor/Project/Public">
+                <button type="submit" class="btn btn-outline-dark" formaction="${pageContext.request.contextPath}/Editor/Project/Public?eId=${authUser.user_id}">
                   <i class="fa fa-check" aria-hidden="true"></i>
                   Public
                 </button>

@@ -88,7 +88,7 @@
                       <td>${c.tagsArti_id}</td>
                       <td>${c.articlesTag_id}</td>
                       <td>
-                        <a href="${pageContext.request.contextPath}/Editor/Tag/Delete?TagID=${c.tag_articles_id}" class="btn btn-outline-dark"><i class="las la-trash"></i></a>
+                        <a href="${pageContext.request.contextPath}/Editor/Tag/Delete?TagID=${c.tag_articles_id}&eId=${authUser.user_id}" class="btn btn-outline-dark"><i class="las la-trash"></i></a>
                       </td>
                     </tr>
                   </c:forEach>

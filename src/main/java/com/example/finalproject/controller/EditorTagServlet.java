@@ -89,8 +89,9 @@ public class EditorTagServlet extends HttpServlet {
     private static void deleteTag(HttpServletRequest request, HttpServletResponse response) throws
             ServletException, IOException {
         int id = Integer.parseInt(request.getParameter("TagID"));
+        String eid = request.getParameter("eId");
         TagHasArtService.delete(id);
-        ServletUtils.redirect("/Editor/Tag", request, response);
+        ServletUtils.redirect("/Editor/Tag?eId="+ eid, request, response);
     }
 }
 

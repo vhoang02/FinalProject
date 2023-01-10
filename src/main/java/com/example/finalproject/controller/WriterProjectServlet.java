@@ -1,8 +1,11 @@
 package com.example.finalproject.controller;
 
 import com.example.finalproject.beans.Articles;
+import com.example.finalproject.beans.Category;
+import com.example.finalproject.beans.Tag;
 import com.example.finalproject.service.ArticleService;
 import com.example.finalproject.service.CategoryService;
+import com.example.finalproject.service.TagService;
 import com.example.finalproject.utils.ServletUtils;
 
 import javax.servlet.*;
@@ -22,32 +25,26 @@ public class WriterProjectServlet extends HttpServlet {
 
         switch (path) {
             case "/Index":
-                int eId = Integer.parseInt(request.getParameter("wId"));
-                List<Articles> list = ArticleService.getByEditor(eId);
-                int countArt = ArticleService.countByEID(eId);
-                int coutDraft = ArticleService.countDraftByEID(eId);
-                int countPub = ArticleService.countPubByEID(eId);
+                int wId = 1;
+                /*int wId = Integer.parseInt(request.getParameter("wId"));*/
+                List<Articles> list = ArticleService.getBywId(wId);
+                int countArt = ArticleService.countByEID(wId);
+                int coutDraft = ArticleService.countDrafPubByWid(wId,100001);
+                int countPub = ArticleService.countDrafPubByWid(wId,100002);
                 request.setAttribute("allart", list);
                 request.setAttribute("countArt", countArt);
                 request.setAttribute("coutDraft", coutDraft);
                 request.setAttribute("countPub", countPub);
-                ServletUtils.forward("/views/vwEditorManager/Writer-project.jsp", request, response);
+                ServletUtils.forward("/views/vwWriter/Writer-project.jsp", request, response);
                 break;
-            /*case "/Detail":
-                int id = 0;
-                try {
-                    id = Integer.parseInt(request.getParameter("id"));
-                } catch (NumberFormatException ignored) {
-                }
-
-                Articles c = ArticleService.get(id);
-                if (c != null) {
-                    request.setAttribute("dtl", c);
-                    ServletUtils.forward("/views/vwEditorManager/Editor-project-edit.jsp", request, response);
-                } else {
-                    ServletUtils.redirect("/Editor/Project", request, response);
-                }
-                break;*/
+            case "/Add":
+                int id = Integer.parseInt(request.getParameter("wId"));
+                List<Category> cateList = CategoryService.getAll();
+                List<Tag> listTag = TagService.findAll();
+                request.setAttribute("category", cateList);
+                request.setAttribute("tags", listTag);
+                ServletUtils.forward("/views/vwWriter/Writer-project-add.jsp", request, response);
+                break;
             default:
                 ServletUtils.forward("/views/404.jsp", request, response);
                 break;

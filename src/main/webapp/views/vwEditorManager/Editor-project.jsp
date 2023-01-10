@@ -104,10 +104,10 @@
                         </c:otherwise>
                       </c:choose>
                       <td>
-                        <a class="btn btn-outline-dark" href="${pageContext.request.contextPath}/Editor/Project/Detail?id=${p.articles_id}" role="button">
+                        <a class="btn btn-outline-dark" href="${pageContext.request.contextPath}/Editor/Project/Detail?id=${p.articles_id}&eId=${authUser.user_id}" role="button">
                           <i class="las la-info"></i>
                         </a>
-                        <a href="${pageContext.request.contextPath}/Admin/Project/Delete?id=${p.articles_id}" class="btn btn-outline-dark" role="button"><i class="las la-trash"></i></a>
+                        <a href="${pageContext.request.contextPath}/Editor/Project/Delete?id=${p.articles_id}&eId=${authUser.user_id}" class="btn btn-outline-dark" role="button"><i class="las la-trash"></i></a>
                       </td>
                     </tr>
                   </c:forEach>
