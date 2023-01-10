@@ -36,8 +36,24 @@ public class ArticleService {
         }
     }
 
-    public static List<Articles> getTop3() {
-        final String query = "SELECT * FROM articles WHERE  `status` = 100001 ORDER BY views DESC LIMIT 0,3";
+    public static List<Articles> getTop3InWeek() {
+        final String query = "SELECT * FROM articles WHERE publish_date  >=  DATE_SUB(CURRENT_DATE(), INTERVAL 10080 MINUTE) and status= 100001 ORDER BY views DESC LIMIT 0,3\n";
+        try (Connection con = DbUtils.getConnection()) {
+            return con.createQuery(query)
+                    .executeAndFetch(Articles.class);
+        }
+    }
+
+    public static List<Articles> getTop10() {
+        final String query = "SELECT * FROM articles WHERE status= 100001 ORDER BY views DESC LIMIT 0,10\n";
+        try (Connection con = DbUtils.getConnection()) {
+            return con.createQuery(query)
+                    .executeAndFetch(Articles.class);
+        }
+    }
+
+    public static List<Articles> getTop10new() {
+        final String query = "SELECT * FROM articles WHERE status= 100001 ORDER BY articles_id DESC LIMIT 0,10\n";
         try (Connection con = DbUtils.getConnection()) {
             return con.createQuery(query)
                     .executeAndFetch(Articles.class);
@@ -231,7 +247,7 @@ public class ArticleService {
         }
     }
 
-
+    //Lấy các bài viết theo danh mục chọn ra 5 bài phân thành 1 trang
 
 
 }
