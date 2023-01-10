@@ -1,12 +1,15 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="t" tagdir="/WEB-INF/tags" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix = "fmt" uri = "http://java.sun.com/jsp/jstl/fmt" %>
+<%--<jsp:useBean id="listtop3" scope="request" type="java.util.List<com.example.finalproject.beans.Articles>"/>--%>
+<%--<jsp:useBean id="ArticleTop10" scope="request" type="java.util.List<com.example.finalproject.beans.Articles>"/>--%>
 <title>Home</title>
 <t:main>
     <jsp:body>
         <!-- Hero Section Begin -->
         <section class="hero">
-            <div class="container">
+            <div class="container-fluid">
                 <div class="hero__slider owl-carousel">
                     <div class="hero__items set-bg"
                          data-setbg="${pageContext.request.contextPath}/style/style-main/img/hero/hero-1.jpg">
@@ -14,12 +17,11 @@
                             <div class="row">
                                 <div class="col-xl-5 col-lg-7 col-md-8">
                                     <div class="hero__text">
-                                        <h6>Summer Collection</h6>
-                                        <h2>Fall - Winter Collections 2030</h2>
+<%--                                        <h6>Summer Collection</h6>--%>
+<%--                                        <h2>Fall - Winter Collections 2030</h2>--%>
                                         <p>A specialist label creating luxury essentials. Ethically crafted with an
                                             unwavering
                                             commitment to exceptional quality.</p>
-                                        <a href="#" class="primary-btn">Explore<span class="arrow_right"></span></a>
                                         <div class="hero__social">
                                             <a href="https://www.facebook.com/vhoang1810/"><i
                                                     class="fa fa-facebook"></i></a>
@@ -37,16 +39,13 @@
                             <div class="row">
                                 <div class="col-xl-5 col-lg-7 col-md-8">
                                     <div class="hero__text">
-                                        <h6>Summer Collection</h6>
-                                        <h2>Fall - Winter Collections 2030</h2>
+<%--                                        <h6>Summer Collection</h6>--%>
+<%--                                        <h2>Fall - Winter Collections 2030</h2>--%>
                                         <p>A specialist label creating luxury essentials. Ethically crafted with an
                                             unwavering
                                             commitment to exceptional quality.</p>
-                                        <a href="#" class="primary-btn">Explore<span class="arrow_right"></span></a>
                                         <div class="hero__social">
                                             <a href="#"><i class="fa fa-facebook"></i></a>
-                                            <a href="#"><i class="fa fa-twitter"></i></a>
-                                            <a href="#"><i class="fa fa-pinterest"></i></a>
                                             <a href="#"><i class="fa fa-instagram"></i></a>
                                         </div>
                                     </div>
@@ -70,84 +69,21 @@
                             </div>
                             <div class="card-body">
                                 <div class="row">
-                                    <div class="col">
-                                        <div class="blog__item">
-                                            <div class="blog__item__pic set-bg"
-                                                 data-setbg="${pageContext.request.contextPath}/style/style-main/img/blog/blog-1.jpg"></div>
-                                            <div class="blog__item__text">
-                                                <span>Chuyên mục</span>
-                                                <span><img
-                                                        src="${pageContext.request.contextPath}/style/style-main/img/icon/calendar.png"
-                                                        alt=""> 16 February 2020</span>
-                                                <h5>What Curling Irons Are The Best Ones</h5>
-                                                <a href="./blogdetails.html">Read More</a>
+                                    <c:forEach var="c" items="${listtop10new}">
+                                        <div class="col">
+                                            <div class="blog__item">
+                                                <div class="blog__item__pic set-bg"
+                                                     data-setbg="${pageContext.request.contextPath}/public/imgs/articles/${c.articles_id}/1.jpg"></div>
+                                                <div class="blog__item__text">
+                                                    <span>
+                                                        <input type="datetime-local" value="${c.publish_date}" name="resumeUrl" />
+                                                    </span>
+                                                    <h5>${c.title}</h5>
+                                                    <a href="${pageContext.request.contextPath}/Article/Detail?id=${c.articles_id}" role="button">Read More</a>
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
-                                    <div class="col">
-                                        <div class="blog__item">
-                                            <div class="blog__item__pic set-bg"
-                                                 data-setbg="${pageContext.request.contextPath}/style/style-main/img/blog/blog-1.jpg"></div>
-                                            <div class="blog__item__text">
-                                                <span>Chuyên mục</span>
-                                                <span><img
-                                                        src="${pageContext.request.contextPath}/style/style-main/img/icon/calendar.png"
-                                                        alt=""> 16 February 2020</span>
-                                                <h5>What Curling Irons Are The Best Ones</h5>
-                                                <a href="./blogdetails.html">Read More</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div>
-                                        <div class="blog__item">
-                                            <div class="blog__item__pic set-bg"
-                                                 data-setbg="${pageContext.request.contextPath}/style/style-main/img/blog/blog-1.jpg"></div>
-                                            <div class="blog__item__text">
-                                                <span>Chuyên mục</span>
-                                                <span><img
-                                                        src="${pageContext.request.contextPath}/style/style-main/img/icon/calendar.png"
-                                                        alt=""> 16 February 2020</span>
-                                                <h5>What Curling Irons Are The Best Ones</h5>
-                                                <a href="./blogdetails.html">Read More</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col">
-                                        <div class="blog__item">
-                                            <div class="blog__item__pic set-bg"
-                                                 data-setbg="${pageContext.request.contextPath}/style/style-main/img/blog/blog-1.jpg"></div>
-                                            <div class="blog__item__text">
-                                                <span>Chuyên mục</span>
-                                                <span><img
-                                                        src="${pageContext.request.contextPath}/style/style-main/img/icon/calendar.png"
-                                                        alt=""> 16 February 2020</span>
-                                                <h5>What Curling Irons Are The Best Ones</h5>
-                                                <a href="./blogdetails.html">Read More</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col">
-                                        <div class="blog__item">
-                                            <div class="blog__item__pic set-bg"
-                                                 data-setbg="${pageContext.request.contextPath}/style/style-main/img/blog/blog-1.jpg"></div>
-                                            <div class="blog__item__text">
-                                                <span>Chuyên mục</span>
-                                                <span><img
-                                                        src="${pageContext.request.contextPath}/style/style-main/img/icon/calendar.png"
-                                                        alt=""> 16 February 2020</span>
-                                                <h5>What Curling Irons Are The Best Ones</h5>
-                                                <a href="./blogdetails.html">Read More</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div aria-label="..." style="margin-left: 300px;">
-                                        <ul class="pagination">
-                                            <li class="page-item"><a class="page-link" href="#">1</a></li>
-                                            <li class="page-item active" aria-current="page">
-                                                <a class="page-link" href="#">2</a>
-                                            </li>
-                                        </ul>
-                                    </div>
+                                    </c:forEach>
                                 </div>
                             </div>
                         </div>
@@ -160,48 +96,22 @@
                             </div>
                             <div class="card-body">
                                 <div class="row">
-                                    <div>
-                                        <div class="blog__item">
-                                            <div class="blog__item__pic set-bg"
-                                                 data-setbg="${pageContext.request.contextPath}/style/style-main/img/blog/blog-1.jpg"></div>
-                                            <div class="blog__item__text">
-                                                <span>Chuyên mục</span>
-                                                <span><img
-                                                        src="${pageContext.request.contextPath}/style/style-main/img/icon/calendar.png"
-                                                        alt=""> 16 February 2020</span>
-                                                <h5>What Curling Irons Are The Best Ones</h5>
-                                                <a href="./blogdetails.html">Read More</a>
+                                    <c:forEach var="c" items="${listtop3}">
+                                        <div>
+                                            <div class="blog__item">
+                                                <span></span>
+                                                <div class="blog__item__pic set-bg"
+                                                     data-setbg="${pageContext.request.contextPath}/public/imgs/articles/${c.articles_id}/1.jpg"></div>
+                                                <div class="blog__item__text">
+                                                    <span>
+                                                        <input type="datetime-local" value="${c.publish_date}" name="resumeUrl" />
+                                                    </span>
+                                                    <h5>${c.title}</h5>
+                                                    <a href="${pageContext.request.contextPath}/Article/Detail?id=${c.articles_id}" role="button">Read More</a>
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
-                                    <div>
-                                        <div class="blog__item">
-                                            <div class="blog__item__pic set-bg"
-                                                 data-setbg="${pageContext.request.contextPath}/style/style-main/img/blog/blog-1.jpg"></div>
-                                            <div class="blog__item__text">
-                                                <span>Chuyên mục</span>
-                                                <span><img
-                                                        src="${pageContext.request.contextPath}/style/style-main/img/icon/calendar.png"
-                                                        alt=""> 16 February 2020</span>
-                                                <h5>What Curling Irons Are The Best Ones</h5>
-                                                <a href="./blogdetails.html">Read More</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div>
-                                        <div class="blog__item">
-                                            <div class="blog__item__pic set-bg"
-                                                 data-setbg="${pageContext.request.contextPath}/style/style-main/img/blog/blog-1.jpg"></div>
-                                            <div class="blog__item__text">
-                                                <span>Chuyên mục</span>
-                                                <span><img
-                                                        src="${pageContext.request.contextPath}/style/style-main/img/icon/calendar.png"
-                                                        alt=""> 16 February 2020</span>
-                                                <h5>What Curling Irons Are The Best Ones</h5>
-                                                <a href="./blogdetails.html">Read More</a>
-                                            </div>
-                                        </div>
-                                    </div>
+                                    </c:forEach>
                                 </div>
                             </div>
                         </div>
@@ -212,6 +122,39 @@
         </section>
         <!-- Blog Section End -->
         <!-- section Chuyên mục -->
+        <hr NOSHADE SIZE="5">
+        <section class="blog spad">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col">
+                        <div class="card h-60">
+                            <div class="h4 align-self-center">
+                                Top 10 xem nhiều nhất
+                            </div>
+                            <div class="card-body">
+                                <div class="row">
+                                    <c:forEach var="c" items="${listtop10view}">
+                                        <div class="col">
+                                            <div class="blog__item">
+                                                <div class="blog__item__pic set-bg"
+                                                     data-setbg="${pageContext.request.contextPath}/public/imgs/articles/${c.articles_id}/1.jpg"></div>
+                                                <div class="blog__item__text">
+                                                    <span>
+                                                        <input type="datetime-local" value="${c.publish_date}" name="resumeUrl" />
+                                                    </span>
+                                                    <h5>${c.title}</h5>
+                                                    <a href="${pageContext.request.contextPath}/Article/Detail?id=${c.articles_id}" role="button">Read More</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </c:forEach>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
         <hr NOSHADE SIZE="5">
         <section>
             <div class="container">
