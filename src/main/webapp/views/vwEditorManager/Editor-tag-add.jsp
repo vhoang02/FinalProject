@@ -16,7 +16,7 @@
             </div>
           </div>
           <div class="card-footer text-muted">
-            <a class="btn btn-outline-dark" href="${pageContext.request.contextPath}/Editor/Tag"
+            <a class="btn btn-outline-dark" href="${pageContext.request.contextPath}/Editor/Tag?eId=${authUser.user_id}"
                role="button">
               <i class="fa fa-backward" aria-hidden="true"></i>
               Back

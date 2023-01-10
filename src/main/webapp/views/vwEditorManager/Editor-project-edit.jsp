@@ -127,7 +127,7 @@
           <c:choose>
             <c:when test="${dtl.status == 100001}">
               <div class="card-footer text-muted">
-                <a class="btn btn-outline-dark" href="${pageContext.request.contextPath}/Editor/Project"
+                <a class="btn btn-outline-dark" href="${pageContext.request.contextPath}/Editor/Project?eId=${authUser.user_id}"
                    role="button">
                   <i class="fa fa-backward" aria-hidden="true"></i>
                   Back
@@ -136,7 +136,7 @@
             </c:when>
             <c:otherwise>
               <div class="card-footer text-muted">
-                <a class="btn btn-outline-dark" href="${pageContext.request.contextPath}/Editor/Project"
+                <a class="btn btn-outline-dark" href="${pageContext.request.contextPath}/Editor/Project?eId=${authUser.user_id}"
                    role="button">
                   <i class="fa fa-backward" aria-hidden="true"></i>
                   Back

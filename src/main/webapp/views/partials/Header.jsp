@@ -75,7 +75,7 @@
                                         </c:when>
                                         <c:when test="${authUser.role == 1}">
                                             <span class="dropdown-item">Hello, ${authUser.name}</span>
-                                            <a href="${pageContext.request.contextPath}/Editor/Project" class="dropdown-item">Edit project(editor)</a>
+                                            <a href="${pageContext.request.contextPath}/Editor/Project?eId=${authUser.user_id}" class="dropdown-item">Edit project(editor)</a>
                                             <a class="dropdown-item" href="${pageContext.request.contextPath}/Account/Profile">Profile</a>
                                             <a class="dropdown-item" href="javascript: $('#frmLogout').submit()">Sign out</a>
                                         </c:when>
