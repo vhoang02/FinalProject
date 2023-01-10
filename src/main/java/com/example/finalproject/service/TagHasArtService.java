@@ -45,5 +45,15 @@ public class TagHasArtService {
                     .executeUpdate();
         }
     }
+    public static void addTagInArt(TagHasArticles tagsArt) {
+        final String query = "INSERT INTO tags_has_articles(tagsArti_id, articlesTag_id) VALUES (:tagsArti_id,:articlesTag_id)";
+        try (Connection con = DbUtils.getConnection()) {
+            con.createQuery(query)
+                    .addParameter("tagsArti_id", tagsArt.getTagsArti_id())
+                    .addParameter("articlesTag_id", tagsArt.getArticlesTag_id())
+                    .executeUpdate();
+
+        }
+    }
 
 }

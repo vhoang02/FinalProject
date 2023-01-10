@@ -106,6 +106,25 @@
           </div>
 
           <div class="card-body">
+            <!-- form-group // -->
+            <div class="form-group">
+              <div class="mb-3">
+                <div class="section-title mb-0">
+                  <h4 class="m-0 text-uppercase font-weight-bold">Tags</h4>
+                </div>
+                <c:forEach items="${listTag}" var="t">
+                  <div class="bg-white border border-top-0 p-3">
+                    <div class="d-flex flex-wrap m-n1">
+                      <a class="btn btn-sm btn-outline-secondary m-1">${t.value}</a>
+                    </div>
+                  </div>
+                </c:forEach>
+              </div>
+
+            </div>
+          </div>
+
+          <div class="card-body">
             <div class="form-group">
               <c:choose>
                 <c:when test="${dtl.status == 100001}">

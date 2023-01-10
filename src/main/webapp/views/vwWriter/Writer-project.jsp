@@ -19,8 +19,8 @@
         <div class="card">
           <div class="card-singles">
             <div>
-              <h1>${countCat}</h1>
-              <span>Category</span>
+              <h1>${coutDraft}</h1>
+              <span>Draft</span>
             </div>
             <div>
               <span class="las la-clipboard-list"></span>
@@ -30,8 +30,8 @@
         <div class="card">
           <div class="card-singles">
             <div>
-              <h1>${coutDraft}</h1>
-              <span>Draft</span>
+              <h1>${countPub}</h1>
+              <span>Public</span>
             </div>
             <div>
               <span class="las la-clipboard-list"></span>
@@ -46,6 +46,9 @@
           <div class="card">
             <div class="card-header">
               <h3>All my Articles</h3>
+              <a class="btn btn-outline-dark" href="${pageContext.request.contextPath}/Writer/Project/Add" role="button"><span class="las la-plus">
+                Add Article
+              </span></a>
             </div>
             <div class="card-body">
               <div class="table-responsive">
@@ -57,7 +60,7 @@
                     <td>Article Tittle</td>
                     <td>Writer ID</td>
                     <td>Status</td>
-                    <td>Edit</td>
+
                   </tr>
                   </thead>
                   <tbody>
@@ -81,13 +84,6 @@
                           </td>
                         </c:otherwise>
                       </c:choose>
-                      <td>
-                        <a class="btn btn-outline-dark" href="${pageContext.request.contextPath}/Editor/Project/Detail?id=${p.articles_id}" role="button">
-                          <i class="las la-info"></i>
-                        </a>
-                        <a href="${pageContext.request.contextPath}/Admin/Project/Delete?id=${p.articles_id}" class="btn btn-outline-dark" role="button"><i class="las la-trash"></i></a>
-                      </td>
-                    </tr>
                   </c:forEach>
 
                   </tbody>

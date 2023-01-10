@@ -32,6 +32,29 @@ public class TagService {
         }
     }
 
+    public static List<Tag> findAllByAid(int id) {
+        final String query = "SELECT tags.* FROM tags INNER JOIN tags_has_articles ON tags.tag_id = tags_has_articles.tagsArti_id WHERE tags_has_articles.articlesTag_id =:articlesTag_id ";
+        try (Connection con = DbUtils.getConnection()) {
+            return con.createQuery(query)
+                    .addParameter("articlesTag_id", id)
+                    .executeAndFetch(Tag.class);
+        }
+    }
+
+    public static Tag findByval(String val) {
+        final String query = "select * from tags where value =:value";
+        try (Connection con = DbUtils.getConnection()) {
+            List<Tag> list = con.createQuery(query)
+                    .addParameter("value", val)
+                    .executeAndFetch(Tag.class);
+
+            if (list.size() == 0) {
+                return null;
+            }
+
+            return list.get(0);
+        }
+    }
     public static void add(Tag c) {
         String insertSql = "insert into tags(value) values (:value)";
         try (Connection con = DbUtils.getConnection()) {
