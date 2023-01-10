@@ -35,6 +35,9 @@ public class User {
         this.premium = premium;
     }
 
+    public User(int i, String username, String bcryptHashString, String name, LocalDateTime issue_at, int expiration, int role, String second_name, LocalDateTime dob, String email, String otp, LocalDateTime otp_exp) {
+    }
+
     public int getUser_id() {
         return user_id;
     }

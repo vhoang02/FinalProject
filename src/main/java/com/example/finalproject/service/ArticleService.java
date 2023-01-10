@@ -247,6 +247,11 @@ public class ArticleService {
         }
     }
 
+    public static void addNews(Articles a) {
+
+    }
+
+
     //Lấy các bài viết theo danh mục chọn ra 5 bài phân thành 1 trang
 
 
