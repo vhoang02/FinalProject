@@ -18,7 +18,7 @@ public class Cmt {
         this.comDate = comDate;
     }
 
-    public int getComArtID() {
+    public static int getComArtID() {
         return comArtID;
     }
 
@@ -26,7 +26,7 @@ public class Cmt {
         this.comArtID = comArtID;
     }
 
-    public int getComUID() {
+    public static int getComUID() {
         return comUID;
     }
 
@@ -42,7 +42,7 @@ public class Cmt {
         this.comID = comID;
     }
 
-    public String getComm() {
+    public static String getComm() {
         return comm;
     }
 
@@ -50,7 +50,7 @@ public class Cmt {
         this.comm = comm;
     }
 
-    public LocalDateTime getComDate() {
+    public static LocalDateTime getComDate() {
         return comDate;
     }
 
