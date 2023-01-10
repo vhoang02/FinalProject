@@ -10,7 +10,7 @@
                     <span>Projects</span></a>
             </li>
             <li>
-                <a href="${pageContext.request.contextPath}/Admin/Tag"><span class="las la-hashtag"></span>
+                <a href="${pageContext.request.contextPath}/Editor/Tag"><span class="las la-hashtag"></span>
                     <span>Tag</span></a>
             </li>
 

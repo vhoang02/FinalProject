@@ -1,6 +1,8 @@
 package com.example.finalproject.controller;
 
 import com.example.finalproject.beans.Tag;
+import com.example.finalproject.beans.TagHasArticles;
+import com.example.finalproject.service.TagHasArtService;
 import com.example.finalproject.service.TagService;
 import com.example.finalproject.utils.ServletUtils;
 
@@ -21,35 +23,22 @@ public class EditorTagServlet extends HttpServlet {
 
         switch (path) {
             case "/Index":
+                int editID = 3;
+                /*int editID = Integer.parseInt(request.getParameter("editID"));*/
+                List<TagHasArticles> listTagArt = TagHasArtService.getByEditor(editID);
                 List<Tag> list = TagService.findAll();
                 int t = TagService.counTag();
                 request.setAttribute("tags", list);
                 request.setAttribute("count", t);
+                request.setAttribute("ltag", listTagArt);
                 ServletUtils.forward("/views/vwEditorManager/Editor-tag.jsp", request, response);
                 break;
 
             case "/Add":
                 ServletUtils.forward("/views/vwEditorManager/Editor-tag-add.jsp", request, response);
                 break;
-
             case "/Delete":
                 deleteTag(request, response);
-                break;
-
-            case "/Edit":
-                int id = 0;
-                try {
-                    id = Integer.parseInt(request.getParameter("TagID"));
-                } catch (NumberFormatException ignored) {
-                }
-
-                Tag c = TagService.findById(id);
-                if (c != null) {
-                    request.setAttribute("Tagg", c);
-                    ServletUtils.forward("/views/vwEditorManager/Editor-tag-edit", request, response);
-                } else {
-                    ServletUtils.redirect("/Editor/Tag", request, response);
-                }
                 break;
 
             default:
@@ -75,6 +64,7 @@ public class EditorTagServlet extends HttpServlet {
                 break;
         }
     }
+
     private static void addTags(HttpServletRequest request, HttpServletResponse response) throws
             ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
@@ -85,12 +75,6 @@ public class EditorTagServlet extends HttpServlet {
         ServletUtils.forward("/views/vwEditorManager/Editor-tag-add.jsp", request, response);
     }
 
-    private static void deleteTag(HttpServletRequest request, HttpServletResponse response) throws
-            ServletException, IOException {
-        int id = Integer.parseInt(request.getParameter("TagID"));
-        TagService.delete(id);
-        ServletUtils.redirect("/Editor/Tag", request, response);
-    }
 
     private static void updateTag(HttpServletRequest request, HttpServletResponse response) throws
             ServletException, IOException {
@@ -100,6 +84,13 @@ public class EditorTagServlet extends HttpServlet {
         String name = request.getParameter("TagVal");
         Tag c = new Tag(id, name);
         TagService.update(c);
+        ServletUtils.redirect("/Editor/Tag", request, response);
+    }
+
+    private static void deleteTag(HttpServletRequest request, HttpServletResponse response) throws
+            ServletException, IOException {
+        int id = Integer.parseInt(request.getParameter("TagID"));
+        TagHasArtService.delete(id);
         ServletUtils.redirect("/Editor/Tag", request, response);
     }
 }

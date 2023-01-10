@@ -37,4 +37,13 @@ public class TagHasArtService {
         }
     }
 
+    public static void delete(int id) {
+        String sql = "DELETE FROM tags_has_articles WHERE tag_articles_id = :tag_articles_id";
+        try (Connection con = DbUtils.getConnection()) {
+            con.createQuery(sql)
+                    .addParameter("tag_articles_id", id)
+                    .executeUpdate();
+        }
+    }
+
 }
