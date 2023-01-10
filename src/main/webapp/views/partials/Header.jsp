@@ -6,53 +6,18 @@
 </div>
 <!-- header section begin -->
 <div id="logo" class="container">
-    <img src="${pageContext.request.contextPath}/style/style-main/img/logo.png">
+    <a href="${pageContext.request.contextPath}/Home"><img src="${pageContext.request.contextPath}/style/style-main/img/logo.png"></a>
 </div>
 <nav>
     <ul>
         <li><a href="#" title="Chuyên mục">Chuyên mục</a>
             <!-- menu con sổ xuống cấp 1 -->
             <ul>
-                <li>
-                    <a href="#">Kinh doanh</a>
-                    <!-- menu con sổ ngang cấp 2 -->
-                    <ul>
-                        <li><a href="#">Nông sản</a></li>
-                        <li><a href="#">Hải sản</a></li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="#">Kinh doanh</a>
-                    <!-- menu con sổ ngang cấp 2 -->
-                    <ul>
-                        <li><a href="#">Nông sản</a></li>
-                        <li><a href="#">Hải sản</a></li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="#">Kinh doanh</a>
-                    <!-- menu con sổ ngang cấp 2 -->
-                    <ul>
-                        <li><a href="#">Nông sản</a></li>
-                        <li><a href="#">Hải sản</a></li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="#">Kinh doanh</a>
-                    <!-- menu con sổ ngang cấp 2 -->
-                    <ul>
-                        <li><a href="#">Nông sản</a></li>
-                        <li><a href="#">Hải sản</a></li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="#">Kinh doanh</a>
-                    <!-- menu con sổ ngang cấp 2 -->
-                    <ul>
-                        <li><a href="#">Nông sản</a></li>
-                        <li><a href="#">Hải sản</a></li>
-                    </ul>
-                </li>
+                <c:forEach var="c" items="${listAllCate}">
+                    <li>
+                        <a href="#">${c.cat_name}</a>
+                    </li>
+                </c:forEach>
             </ul>
         </li>
         <li>
@@ -81,7 +46,7 @@
                                         </c:when>
                                         <c:when test="${authUser.role == 2}">
                                             <span class="dropdown-item">Hello, ${authUser.name}</span>
-                                            <a href="admin-dashboard.html" class="dropdown-item">Edit (writer)</a>
+                                            <a href="${pageContext.request.contextPath}/Writer/Project" class="dropdown-item">Edit (writer)</a>
                                             <a class="dropdown-item" href="${pageContext.request.contextPath}/Account/Profile">Profile</a>
                                             <a class="dropdown-item" href="javascript: $('#frmLogout').submit()">Sign out</a>
                                         </c:when>
